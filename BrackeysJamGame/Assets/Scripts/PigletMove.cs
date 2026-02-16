@@ -9,7 +9,7 @@ public class PigletMove : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     [SerializeField] float moveSpeed = 5f;
-    const float positionEpsilon = 0.05f; // slightly larger to avoid tiny oscillations
+    float requirement = 0.05f;
 
     bool isWaiting;
 
@@ -25,7 +25,7 @@ public class PigletMove : MonoBehaviour
     void FixedUpdate()
     {
         float dist = Vector2.Distance(piggyRb.position, new Vector2(nextPos.x, nextPos.y));
-        if (dist < positionEpsilon)
+        if (dist < requirement)
         {
             piggyRb.linearVelocity = Vector2.zero;
             if (!isWaiting)
@@ -36,19 +36,19 @@ public class PigletMove : MonoBehaviour
             return;
         }
 
-        Vector2 target = Vector2.MoveTowards(piggyRb.position, new Vector2(nextPos.x, nextPos.y), moveSpeed * Time.fixedDeltaTime);
+        Vector2 target = Vector2.MoveTowards(piggyRb.position, new Vector2(nextPos.x, nextPos.y), moveSpeed * Time.deltaTime);
         piggyRb.MovePosition(target);
     }
 
     private void Update()
     {
-        bool isWalking = !isWaiting && Vector2.Distance(piggyRb.position, new Vector2(nextPos.x, nextPos.y)) > positionEpsilon;
+        bool isWalking = !isWaiting && Vector2.Distance(piggyRb.position, new Vector2(nextPos.x, nextPos.y)) > requirement;
         piggyAnimator.SetBool("moving", isWalking);
 
-        float dx = nextPos.x - piggyRb.position.x;
-        if (Mathf.Abs(dx) > 0.01f)
+        float deltaX = nextPos.x - piggyRb.position.x;
+        if (Mathf.Abs(deltaX) > 0.01f)
         {
-            spriteRenderer.flipX = dx > 0f;
+            spriteRenderer.flipX = deltaX > 0f;
         }
     }
 
