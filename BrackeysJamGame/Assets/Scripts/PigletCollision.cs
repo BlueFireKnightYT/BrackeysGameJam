@@ -35,5 +35,6 @@ public class PigletCollision : MonoBehaviour
     private void UndoOccupy()
     {
         sacrificeCircle.GetComponent<CountHandler>().isOccupied = false;
+        CurrencyHandler.baconAmount++;
     }
 }
