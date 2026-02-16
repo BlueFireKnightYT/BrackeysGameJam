@@ -15,6 +15,8 @@ public class PigletMove : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(newNextPos());
+
         piggyRb = GetComponent<Rigidbody2D>();
         piggyAnimator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
