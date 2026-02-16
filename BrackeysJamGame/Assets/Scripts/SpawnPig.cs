@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnPig : MonoBehaviour
 {
     [SerializeField] GameObject[] pigs;
+    [SerializeField] GameObject shadow;
 
     public float cooldown = 10f;
 
@@ -32,6 +33,7 @@ public class SpawnPig : MonoBehaviour
             Vector3 spawnPos = new Vector3(nextPos.x, nextPos.y + 15f, 0f);
 
             GameObject spawnedPig = Instantiate(pigs[pigToSpawn], spawnPos, Quaternion.identity);
+            Instantiate(shadow, new Vector3(nextPos.x, nextPos.y - 0.85f, 0f), Quaternion.identity);
             currentPigs++;
             PigletMove move = spawnedPig.GetComponent<PigletMove>();
 
