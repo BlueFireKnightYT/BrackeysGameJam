@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 5585348909829755223}
   - component: {fileID: 9016499245205088364}
   - component: {fileID: 1186864650498028141}
+  - component: {fileID: 5860327743581817411}
   m_Layer: 0
   m_Name: PigletStyle1
-  m_TagString: Untagged
+  m_TagString: piglet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 698d28ff60e4e3c4fa1e41cdd4b06d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  nextPos: {x: 0, y: 0, z: 0}
   piggyAnimator: {fileID: 1489434587603008497}
   moveSpeed: 5
 --- !u!50 &9016499245205088364
@@ -204,3 +206,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9375, y: 0.6875}
   m_EdgeRadius: 0
+--- !u!114 &5860327743581817411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250147101571189329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78b4bef83cdc1448a1ab5ab3e77dcc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PigletCollision
+  isSacrificed: 0
