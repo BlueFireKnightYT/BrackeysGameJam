@@ -7,11 +7,13 @@ public class PigletCollision : MonoBehaviour
     private Rigidbody2D rb;
     private GameObject sacrificeCircle;
     public bool isSacrificed;
+    private SpawnPig spawnScript;
     void Start()
     {
         circleColl = GetComponent<CircleCollider2D>();
         pMove = GetComponent<PigletMove>();
         rb = GetComponent<Rigidbody2D>();
+        spawnScript = GameObject.FindGameObjectWithTag("spawner").GetComponent<SpawnPig>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,7 +29,6 @@ public class PigletCollision : MonoBehaviour
                 collision.GetComponent<CountHandler>().isOccupied = true;
                 Invoke("UndoOccupy", 0.99f);
                 isSacrificed = true;
-                print("kurwa");
             }     
         }
     }
@@ -36,5 +37,6 @@ public class PigletCollision : MonoBehaviour
     {
         sacrificeCircle.GetComponent<CountHandler>().isOccupied = false;
         CurrencyHandler.baconAmount++;
+        spawnScript.currentPigs--;
     }
 }
