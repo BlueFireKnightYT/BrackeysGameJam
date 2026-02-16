@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5585348909829755223}
   - component: {fileID: 9016499245205088364}
   - component: {fileID: 1186864650498028141}
-  - component: {fileID: 5860327743581817411}
+  - component: {fileID: 8207304751090171741}
   m_Layer: 0
   m_Name: PigletStyle1
   m_TagString: piglet
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1766018832193663365, guid: e3dd9c74c20858a44b404c6f1f742ba5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -194,7 +194,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0070416927, y: -0.0014083534}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -204,9 +204,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9375, y: 0.6875}
+  m_Size: {x: 0.70371485, y: 0.5832826}
   m_EdgeRadius: 0
---- !u!114 &5860327743581817411
+--- !u!114 &8207304751090171741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

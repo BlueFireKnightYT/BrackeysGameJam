@@ -9,7 +9,7 @@ public class SpawnPig : MonoBehaviour
     public float cooldown = 10f;
 
     public int maxPigs = 5;
-    int currentPigs = 0;
+    public int currentPigs = 0;
 
     bool isSpawning;
 
