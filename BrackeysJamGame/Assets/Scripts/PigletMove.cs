@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PigletMove : MonoBehaviour
 {
-    Vector3 nextPos;
+    public Vector3 nextPos;
     Rigidbody2D piggyRb;
     public Animator piggyAnimator;
     SpriteRenderer spriteRenderer;
@@ -15,7 +15,6 @@ public class PigletMove : MonoBehaviour
 
     void Start()
     {
-        nextPos = transform.position;
         piggyRb = GetComponent<Rigidbody2D>();
         piggyAnimator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -52,7 +51,7 @@ public class PigletMove : MonoBehaviour
         }
     }
 
-    IEnumerator newNextPos()
+    public IEnumerator newNextPos()
     {
         isWaiting = true;
         float pauseTime = Random.Range(1f, 4f);
