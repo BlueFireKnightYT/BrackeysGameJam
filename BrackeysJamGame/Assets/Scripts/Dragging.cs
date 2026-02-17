@@ -3,6 +3,12 @@ using UnityEngine;
 public class Dragging : MonoBehaviour
 {
     [SerializeField] bool isDragging = false;
+    private BoxCollider2D boxColl;
+
+    private void Start()
+    {
+        boxColl = GetComponent<BoxCollider2D>();
+    }
     void Update()
     {
         if  (isDragging)
@@ -14,9 +20,11 @@ public class Dragging : MonoBehaviour
     private void OnMouseDown()
     {
         isDragging = true;
+        boxColl.enabled = false;
     }
     private void OnMouseUp()
     {
         isDragging = false;
+        boxColl.enabled = true;
     }
 }
