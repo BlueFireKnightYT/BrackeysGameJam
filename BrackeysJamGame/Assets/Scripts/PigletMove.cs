@@ -17,6 +17,7 @@ public class PigletMove : MonoBehaviour
     void Start()
     {
         StartCoroutine(newNextPos());
+        StartCoroutine(canPickUpWhenDropped());
 
         pigCollider2D = GetComponent<BoxCollider2D>();
         piggyRb = GetComponent<Rigidbody2D>();
@@ -65,11 +66,11 @@ public class PigletMove : MonoBehaviour
         yield return new WaitForSeconds(pauseTime);
         nextPos = new Vector3(Random.Range(-9f, 9f), Random.Range(-5f, 5f), transform.position.z);
         isWaiting = false;
-
-        if (!pigCollider2D.enabled)
-        {
-            pigCollider2D.enabled = true;
-            moveSpeed = 3f;
-        }
-    }       
+    }  
+    public IEnumerator canPickUpWhenDropped()
+    {
+        yield return new WaitForSeconds(3);
+        pigCollider2D.enabled = true;
+        moveSpeed = 3f;
+    }
 }

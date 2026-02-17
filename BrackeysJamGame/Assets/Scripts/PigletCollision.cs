@@ -24,7 +24,7 @@ public class PigletCollision : MonoBehaviour
                 if (collision.GetComponent<CountHandler>().isOccupied == false)
                 {
                     pMove.enabled = false;
-                    transform.position = collision.gameObject.transform.position + new Vector3(0, 1.75f, 0);
+                    transform.position = collision.gameObject.transform.position;
                     Destroy(gameObject, 1f);
                     collision.GetComponent<CountHandler>().isOccupied = true;
                     Invoke("UndoOccupy", 0.99f);
