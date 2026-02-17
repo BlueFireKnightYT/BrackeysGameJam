@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   beenBought: 0
+  canPlace: 1
 --- !u!61 &8070729652193902989
 BoxCollider2D:
   m_ObjectHideFlags: 0
