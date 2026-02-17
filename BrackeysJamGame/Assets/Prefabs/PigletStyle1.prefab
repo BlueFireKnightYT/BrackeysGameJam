@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9016499245205088364}
   - component: {fileID: 1186864650498028141}
   - component: {fileID: 8207304751090171741}
+  - component: {fileID: 3286987363089143247}
   m_Layer: 0
   m_Name: PigletStyle1
   m_TagString: piglet
@@ -167,7 +168,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2250147101571189329}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -219,3 +220,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PigletCollision
   isSacrificed: 0
+--- !u!114 &3286987363089143247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250147101571189329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11bb4149c19cbfd41814b4b9e65730e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dragging
+  isDragging: 0
