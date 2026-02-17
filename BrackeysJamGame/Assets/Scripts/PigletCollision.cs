@@ -2,17 +2,15 @@ using UnityEngine;
 
 public class PigletCollision : MonoBehaviour
 {
-    private CircleCollider2D circleColl;
     private PigletMove pMove;
-    private Rigidbody2D rb;
+    private BoxCollider2D coll;
     private GameObject sacrificeCircle;
     public bool isSacrificed;
     private SpawnPig spawnScript;
     void Start()
     {
-        circleColl = GetComponent<CircleCollider2D>();
         pMove = GetComponent<PigletMove>();
-        rb = GetComponent<Rigidbody2D>();
+        coll = GetComponent<BoxCollider2D>();
         spawnScript = GameObject.FindGameObjectWithTag("spawner").GetComponent<SpawnPig>();
     }
 
@@ -21,15 +19,26 @@ public class PigletCollision : MonoBehaviour
         if (collision.CompareTag("sacrifice") == true)
         {
             sacrificeCircle = collision.gameObject;
-            if(collision.GetComponent<CountHandler>().isOccupied == false)
+            if(collision.GetComponent<CircleCollider2D>().enabled == true)
             {
-                pMove.enabled = false;
-                transform.position = new Vector2(0f, 0.1f);
-                Destroy(gameObject, 1f);
-                collision.GetComponent<CountHandler>().isOccupied = true;
-                Invoke("UndoOccupy", 0.99f);
-                isSacrificed = true;
-            }     
+                if (collision.GetComponent<CountHandler>().isOccupied == false)
+                {
+                    pMove.enabled = false;
+                    transform.position = collision.gameObject.transform.position + new Vector3(0, 1.75f, 0);
+                    Destroy(gameObject, 1f);
+                    collision.GetComponent<CountHandler>().isOccupied = true;
+                    Invoke("UndoOccupy", 0.99f);
+                    isSacrificed = true;
+                }
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (!coll.IsTouchingLayers())
+        {
+            sacrificeCircle = null;
         }
     }
 
