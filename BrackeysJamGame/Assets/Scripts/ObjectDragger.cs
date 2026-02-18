@@ -9,6 +9,9 @@ public class ObjectDragger : MonoBehaviour
     public bool beenBought;
     public bool canPlace;
     Color c;
+    AudioScript audioScript;
+    GameObject sfxManager;
+    AudioSource source;
 
     private void Start()
     {
@@ -16,6 +19,11 @@ public class ObjectDragger : MonoBehaviour
         circle = GetComponent<CircleCollider2D>();
         sr = GetComponent<SpriteRenderer>();
         cDummy = GetComponent<CarrotDummy>();
+
+        sfxManager = GameObject.FindGameObjectWithTag("sfxManager");
+        audioScript = sfxManager.GetComponent<AudioScript>();
+        source = sfxManager.GetComponent<AudioSource>();
+
         c = sr.color;
         if (beenBought)
         {
@@ -57,6 +65,9 @@ public class ObjectDragger : MonoBehaviour
             c.a = 1f;
             sr.color = c;
             if (cDummy != null) cDummy.ActivateCarrotDummy();
+            audioScript.PlayBuildThud();
+
+
         }
           
     }

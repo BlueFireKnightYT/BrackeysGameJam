@@ -3,7 +3,10 @@ using UnityEngine;
 public class AudioScript : MonoBehaviour
 {
     AudioSource source;
-    [SerializeField] AudioClip BigPigCrash;
+    public AudioClip BigPigCrash;
+    public AudioClip ButtonClick;
+    public AudioClip MenuSwoosh;
+    public AudioClip Thud;
 
     private void Start()
     {
@@ -13,5 +16,17 @@ public class AudioScript : MonoBehaviour
     public void PlayBigPigCrash()
     {
         source.PlayOneShot(BigPigCrash);
+    }
+    public void PlayButtonClick()
+    {
+        source.PlayOneShot(ButtonClick);
+    }
+    public void PlayMenuSwoosh()
+    {
+        source.PlayOneShot(MenuSwoosh);
+    }
+    public void PlayBuildThud()
+    {
+        source.PlayOneShot(Thud);
     }
 }
