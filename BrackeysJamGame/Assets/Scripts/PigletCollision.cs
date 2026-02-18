@@ -24,6 +24,8 @@ public class PigletCollision : MonoBehaviour
             {
                 if (collision.GetComponent<CountHandler>().isOccupied == false)
                 {
+                    pMove.piggyAnimator.SetBool("moving", false);
+                    if(pMove.isBiggaPigga) pMove.piggyAnimator.speed = 0f;
                     pMove.enabled = false;
                     transform.position = collision.gameObject.transform.position;
                     Destroy(gameObject, 1f);

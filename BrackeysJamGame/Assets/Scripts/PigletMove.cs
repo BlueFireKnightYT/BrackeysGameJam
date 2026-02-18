@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class PigletMove : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class PigletMove : MonoBehaviour
 
     GameObject cam;
     ScreenShake screenShake;
+    PigletCollision collisionScript;
+
+    GameObject sfxManager;
+    AudioScript audioScript;
 
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float movingSpeed;
@@ -24,8 +29,12 @@ public class PigletMove : MonoBehaviour
         StartCoroutine(newNextPos());
         StartCoroutine(canPickUpWhenDropped());
 
+        collisionScript = GetComponent<PigletCollision>();
         cam = GameObject.FindGameObjectWithTag("MainCamera");
         screenShake = cam.GetComponent<ScreenShake>();
+
+        sfxManager = GameObject.FindGameObjectWithTag("sfxManager");
+        audioScript = sfxManager.GetComponent<AudioScript>();
 
         pigCollider2D = GetComponent<BoxCollider2D>();
         piggyRb = GetComponent<Rigidbody2D>();
@@ -89,7 +98,10 @@ public class PigletMove : MonoBehaviour
         pigCollider2D.enabled = true;
         moveSpeed = movingSpeed;
         if (isBiggaPigga)
-        screenShake.StartCoroutine(screenShake.shake());
+        { 
+            screenShake.StartCoroutine(screenShake.shake());
+            audioScript.PlayBigPigCrash();
+        }
 
     }
 }

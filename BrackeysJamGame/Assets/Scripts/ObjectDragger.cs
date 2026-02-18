@@ -20,7 +20,7 @@ public class ObjectDragger : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         cDummy = GetComponent<CarrotDummy>();
         c = sr.color;
-        if (beenBought)
+        if (beenBought && circle != null)
         {
             circle.enabled = false;
             c.a = 0.1f;

@@ -3,6 +3,7 @@ using UnityEngine;
 public class CanvasElementActions : MonoBehaviour
 {
     public GameObject upgradeMenu;
+    public GameObject upgradeButton;
     public GameObject sacrificeCirclePrefab;
     public GameObject carrotDummyPrefab;
     Vector2 cursorWorldPos;
@@ -15,10 +16,8 @@ public class CanvasElementActions : MonoBehaviour
     }
     public void UpgradeButtonPressed()
     {
-        if(upgradeMenu.activeSelf == true)
-        {
-            upgradeMenu.SetActive(false);
-        } else upgradeMenu.SetActive(true);
+        upgradeMenu.SetActive(true);
+        upgradeButton.SetActive(false);
     }
 
     public void PurchaseSacrificeCircle()
@@ -46,5 +45,6 @@ public class CanvasElementActions : MonoBehaviour
     public void DisableMenu()
     {
         upgradeMenu.SetActive(false);
+        upgradeButton.SetActive(true);
     }
 }

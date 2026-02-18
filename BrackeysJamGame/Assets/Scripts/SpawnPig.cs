@@ -8,6 +8,8 @@ public class SpawnPig : MonoBehaviour
     [SerializeField] GameObject[] rarePigs;
     [SerializeField] GameObject shadow;
 
+
+
     public float cooldown = 10f;
     public int rarePigChance;
 

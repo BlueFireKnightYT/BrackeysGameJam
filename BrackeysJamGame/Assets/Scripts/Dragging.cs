@@ -5,9 +5,11 @@ public class Dragging : MonoBehaviour
     [SerializeField] bool isDragging = false;
     private BoxCollider2D boxColl;
     private PigletCollision pigColl;
+    SpriteRenderer sr;
 
     private void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
         boxColl = GetComponent<BoxCollider2D>();
         pigColl = GetComponent<PigletCollision>();
     }
@@ -26,6 +28,10 @@ public class Dragging : MonoBehaviour
             isDragging = true;
             boxColl.enabled = false;
             pigColl.enabled = false;
+
+            Color c = sr.color;
+            c.a = 0.5f;
+            sr.color = c;
         } 
     }
     private void OnMouseUp()
@@ -33,5 +39,9 @@ public class Dragging : MonoBehaviour
         isDragging = false;
         boxColl.enabled = true;
         pigColl.enabled = true;
+
+        Color c = sr.color;
+        c.a = 1f;
+        sr.color = c;
     }
 }
