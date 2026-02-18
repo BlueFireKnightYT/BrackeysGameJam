@@ -9,11 +9,12 @@ TagManager:
   - spawner
   - object
   - sfxManager
+  - carrot
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - CarrotDummy
   - Water
   - UI
   - 

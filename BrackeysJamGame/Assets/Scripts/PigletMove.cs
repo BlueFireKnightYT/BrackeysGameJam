@@ -10,6 +10,10 @@ public class PigletMove : MonoBehaviour
     SpriteRenderer spriteRenderer;
     BoxCollider2D pigCollider2D;
     public bool isBiggaPigga;
+    public float carrotSensingRange;
+    public LayerMask carrotLayer;
+    public bool carrotInRange;
+    private GameObject closestCarrot;
 
     GameObject cam;
     ScreenShake screenShake;
@@ -41,6 +45,8 @@ public class PigletMove : MonoBehaviour
         piggyAnimator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         isWaiting = false;
+
+        InvokeRepeating("DetectCarrots", 0, 0.5f);
     }
 
     void FixedUpdate()
@@ -82,6 +88,8 @@ public class PigletMove : MonoBehaviour
         {
             spriteRenderer.flipX = deltaX > 0f;
         }
+        
+        
     }
 
     public IEnumerator newNextPos()
@@ -89,8 +97,16 @@ public class PigletMove : MonoBehaviour
         isWaiting = true;
         float pauseTime = Random.Range(3f, 5f);
         yield return new WaitForSeconds(pauseTime);
-        nextPos = new Vector3(Random.Range(-9f, 9f), Random.Range(-5f, 5f), transform.position.z);
-        isWaiting = false;
+        if (!carrotInRange)
+        {
+            nextPos = new Vector3(Random.Range(-9f, 9f), Random.Range(-5f, 5f), transform.position.z);
+        }
+        else
+        {
+            Vector3 carrotPos = closestCarrot.transform.position;
+            nextPos = new Vector3(Random.Range(carrotPos.x - 4, carrotPos.x + 4), Random.Range(carrotPos.y - 2, carrotPos.y + 2), transform.position.z);
+        }
+            isWaiting = false;
     }  
     public IEnumerator canPickUpWhenDropped()
     {
@@ -103,5 +119,30 @@ public class PigletMove : MonoBehaviour
             audioScript.PlayBigPigCrash();
         }
 
+    }
+
+    void DetectCarrots()
+    {
+        carrotInRange = false;
+        closestCarrot = null;
+        float minDistance = Mathf.Infinity;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, carrotSensingRange, carrotLayer);
+        foreach (Collider2D hit in hits)
+        {
+            float distance = Vector2.Distance(transform.position, hit.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                carrotInRange = true;
+                closestCarrot = hit.gameObject;
+            }
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, carrotSensingRange);
     }
 }
