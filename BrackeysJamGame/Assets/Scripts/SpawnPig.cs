@@ -5,9 +5,11 @@ using UnityEngine;
 public class SpawnPig : MonoBehaviour
 {
     [SerializeField] GameObject[] pigs;
+    [SerializeField] GameObject[] rarePigs;
     [SerializeField] GameObject shadow;
 
     public float cooldown = 10f;
+    public int rarePigChance;
 
     public int maxPigs = 5;
     public int currentPigs = 0;
@@ -26,17 +28,20 @@ public class SpawnPig : MonoBehaviour
         isSpawning = true;
         while (currentPigs < maxPigs)
         {
-            int pigToSpawn = Random.Range(0, pigs.Length);
+            int rarityChance = Random.Range(0, rarePigChance);
+            GameObject[] pigsToChoose;
+            if (rarityChance == rarePigChance - 1) pigsToChoose = rarePigs;
+            else pigsToChoose = pigs;
+            int pigToSpawn = Random.Range(0, pigsToChoose.Length);
             yield return new WaitForSeconds(cooldown);
 
             Vector3 nextPos = new Vector3(Random.Range(-9f, 9f), Random.Range(-5f, 5f), 0f);
             Vector3 spawnPos = new Vector3(nextPos.x, nextPos.y + 15f, 0f);
 
-            GameObject spawnedPig = Instantiate(pigs[pigToSpawn], spawnPos, Quaternion.identity);
+            GameObject spawnedPig = Instantiate(pigsToChoose[pigToSpawn], spawnPos, Quaternion.identity);
             Instantiate(shadow, new Vector3(nextPos.x, nextPos.y - 0.85f, 0f), Quaternion.identity);
             currentPigs++;
             PigletMove move = spawnedPig.GetComponent<PigletMove>();
-
             move.nextPos = nextPos;
         }
         isSpawning = false;

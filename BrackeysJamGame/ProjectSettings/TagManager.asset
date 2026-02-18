@@ -7,6 +7,7 @@ TagManager:
   - sacrifice
   - piglet
   - spawner
+  - object
   layers:
   - Default
   - TransparentFX

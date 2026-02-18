@@ -4,6 +4,7 @@ public class CanvasElementActions : MonoBehaviour
 {
     public GameObject upgradeMenu;
     public GameObject sacrificeCirclePrefab;
+    public GameObject carrotDummyPrefab;
     Vector2 cursorWorldPos;
     Vector2 spawnPos;
 
@@ -29,6 +30,17 @@ public class CanvasElementActions : MonoBehaviour
             obj.GetComponent<ObjectDragger>().beenBought = true;
             DisableMenu();
         }   
+    }
+
+    public void PurchaseCarrotDummy()
+    {
+        if (CurrencyHandler.baconAmount >= 10)
+        {
+            GameObject obj = Instantiate(carrotDummyPrefab, spawnPos, Quaternion.identity);
+            CurrencyHandler.baconAmount -= 10;
+            obj.GetComponent<ObjectDragger>().beenBought = true;
+            DisableMenu();
+        }
     }
 
     public void DisableMenu()

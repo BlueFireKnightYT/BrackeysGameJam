@@ -5,6 +5,7 @@ public class PigletCollision : MonoBehaviour
     private PigletMove pMove;
     private BoxCollider2D coll;
     private GameObject sacrificeCircle;
+    public int baconObtained;
     public bool isSacrificed;
     private SpawnPig spawnScript;
     void Start()
@@ -45,7 +46,7 @@ public class PigletCollision : MonoBehaviour
     private void UndoOccupy()
     {
         sacrificeCircle.GetComponent<CountHandler>().isOccupied = false;
-        CurrencyHandler.baconAmount++;
+        CurrencyHandler.baconAmount += baconObtained;
         spawnScript.currentPigs--;
     }
 }

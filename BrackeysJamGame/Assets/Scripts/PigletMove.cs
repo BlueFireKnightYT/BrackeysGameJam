@@ -8,6 +8,7 @@ public class PigletMove : MonoBehaviour
     public Animator piggyAnimator;
     SpriteRenderer spriteRenderer;
     BoxCollider2D pigCollider2D;
+    public bool isBiggaPigga;
 
     [SerializeField] float moveSpeed = 5f;
     float requirement = 0.05f;
@@ -50,9 +51,17 @@ public class PigletMove : MonoBehaviour
     private void Update()
     {
         bool isWalking = !isWaiting && Vector2.Distance(piggyRb.position, new Vector2(nextPos.x, nextPos.y)) > requirement;
-        piggyAnimator.SetBool("moving", isWalking);
+        if (!isBiggaPigga)
+        {
+            piggyAnimator.SetBool("moving", isWalking);
+        }
+        else
+        {
+            if (isWalking) piggyAnimator.speed = 1f;
+            else piggyAnimator.speed = 0f;
 
-        float deltaX = nextPos.x - piggyRb.position.x;
+        }
+            float deltaX = nextPos.x - piggyRb.position.x;
         if (Mathf.Abs(deltaX) > 0.01f)
         {
             spriteRenderer.flipX = deltaX > 0f;
