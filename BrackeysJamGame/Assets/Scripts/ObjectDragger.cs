@@ -61,13 +61,12 @@ public class ObjectDragger : MonoBehaviour
         {
             coll.enabled = false;
             if(circle != null) circle.enabled = true;
+            if (beenBought)
+                audioScript.PlayBuildThud();
             beenBought = false;
             c.a = 1f;
             sr.color = c;
             if (cDummy != null) cDummy.ActivateCarrotDummy();
-            audioScript.PlayBuildThud();
-
-
         }
           
     }

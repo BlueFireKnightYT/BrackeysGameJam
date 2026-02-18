@@ -43,14 +43,6 @@ public class CanvasElementActions : MonoBehaviour
         {
             upgradeMenuRect.anchoredPosition = target;
         }
-        if(source.isPlaying == audioScript.MenuSwoosh)
-        {
-            source.volume = 0.5f;
-        }
-        else
-        {
-            source.volume = 1f;
-        }
     }
 
     public void UpgradeButtonPressed()
