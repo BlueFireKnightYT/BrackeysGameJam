@@ -6,10 +6,6 @@ public class CurrencyHandler : MonoBehaviour
     public static int baconAmount;
     public TextMeshProUGUI baconText;
 
-    private void Start()
-    {
-        baconAmount += 1000;
-    }
     private void Update()
     {
         if (baconAmount < 1000)

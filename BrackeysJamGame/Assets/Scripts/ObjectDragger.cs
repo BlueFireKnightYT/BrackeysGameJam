@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class ObjectDragger : MonoBehaviour
@@ -20,10 +17,12 @@ public class ObjectDragger : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         cDummy = GetComponent<CarrotDummy>();
         c = sr.color;
-        if (beenBought && circle != null)
+        if (beenBought)
         {
-            circle.enabled = false;
-            c.a = 0.1f;
+            if(circle != null) circle.enabled = false;
+
+            c.a = 0.5f;
+            sr.color = c;
         }
     }
 
@@ -56,7 +55,8 @@ public class ObjectDragger : MonoBehaviour
             if(circle != null) circle.enabled = true;
             beenBought = false;
             c.a = 1f;
-            if(cDummy != null) cDummy.ActivateCarrotDummy();
+            sr.color = c;
+            if (cDummy != null) cDummy.ActivateCarrotDummy();
         }
           
     }
