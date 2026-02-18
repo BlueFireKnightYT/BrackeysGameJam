@@ -39,7 +39,11 @@ public class SpawnPig : MonoBehaviour
             Vector3 spawnPos = new Vector3(nextPos.x, nextPos.y + 15f, 0f);
 
             GameObject spawnedPig = Instantiate(pigsToChoose[pigToSpawn], spawnPos, Quaternion.identity);
-            Instantiate(shadow, new Vector3(nextPos.x, nextPos.y - 0.85f, 0f), Quaternion.identity);
+            GameObject shadowObj = Instantiate(shadow, new Vector3(nextPos.x, nextPos.y - 0.85f, 0f), Quaternion.identity);
+            if (pigsToChoose == rarePigs && pigToSpawn == 0)
+            {
+                shadowObj.transform.localScale = new Vector3(2, 2, 2);
+            }
             currentPigs++;
             PigletMove move = spawnedPig.GetComponent<PigletMove>();
             move.nextPos = nextPos;

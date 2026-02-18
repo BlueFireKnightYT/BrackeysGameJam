@@ -10,6 +10,9 @@ public class PigletMove : MonoBehaviour
     BoxCollider2D pigCollider2D;
     public bool isBiggaPigga;
 
+    GameObject cam;
+    ScreenShake screenShake;
+
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float movingSpeed;
     float requirement = 0.05f;
@@ -20,6 +23,9 @@ public class PigletMove : MonoBehaviour
     {
         StartCoroutine(newNextPos());
         StartCoroutine(canPickUpWhenDropped());
+
+        cam = GameObject.FindGameObjectWithTag("MainCamera");
+        screenShake = cam.GetComponent<ScreenShake>();
 
         pigCollider2D = GetComponent<BoxCollider2D>();
         piggyRb = GetComponent<Rigidbody2D>();
@@ -82,5 +88,8 @@ public class PigletMove : MonoBehaviour
         yield return new WaitForSeconds(3);
         pigCollider2D.enabled = true;
         moveSpeed = movingSpeed;
+        if (isBiggaPigga)
+        screenShake.StartCoroutine(screenShake.shake());
+
     }
 }
