@@ -134,7 +134,8 @@ MonoBehaviour:
   nextPos: {x: 0, y: 0, z: 0}
   piggyAnimator: {fileID: 1475287868312232858}
   isBiggaPigga: 1
-  moveSpeed: 2
+  moveSpeed: 5
+  movingSpeed: 1
 --- !u!50 &2002068881784216218
 Rigidbody2D:
   serializedVersion: 5
@@ -199,7 +200,7 @@ BoxCollider2D:
   m_Offset: {x: -0.0042060018, y: 0.006153509}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: -0.06666667}
+    pivot: {x: 0.50947654, y: 0.5}
     oldSize: {x: 1, y: 0.9375}
     newSize: {x: 0.9375, y: 0.6875}
     adaptiveTilingThreshold: 0.5

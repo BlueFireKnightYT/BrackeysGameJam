@@ -133,7 +133,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   nextPos: {x: -7, y: 4, z: 0}
   piggyAnimator: {fileID: 1489434587603008497}
+  isBiggaPigga: 0
   moveSpeed: 5
+  movingSpeed: 3
 --- !u!50 &9016499245205088364
 Rigidbody2D:
   serializedVersion: 5
@@ -168,7 +170,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2250147101571189329}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}

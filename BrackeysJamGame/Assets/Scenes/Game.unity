@@ -209,7 +209,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 4
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 4
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1292,30 +1292,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pig Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 1668980122021628671, guid: 2b2a6b7f0459a264383f6474290326ce, type: 3}
-      propertyPath: m_TagString
-      value: spawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 3052989659140459565, guid: 2b2a6b7f0459a264383f6474290326ce, type: 3}
-      propertyPath: cooldown
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3052989659140459565, guid: 2b2a6b7f0459a264383f6474290326ce, type: 3}
-      propertyPath: currentPigs
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3052989659140459565, guid: 2b2a6b7f0459a264383f6474290326ce, type: 3}
-      propertyPath: rarePigChance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3052989659140459565, guid: 2b2a6b7f0459a264383f6474290326ce, type: 3}
-      propertyPath: rarePigs.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3052989659140459565, guid: 2b2a6b7f0459a264383f6474290326ce, type: 3}
-      propertyPath: 'rarePigs.Array.data[0]'
-      value: 
-      objectReference: {fileID: 9126263082620842945, guid: 0a8bca85a7a5db04e92d06323795d22d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1486,7 +1462,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 4
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1892,7 +1868,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 4
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535

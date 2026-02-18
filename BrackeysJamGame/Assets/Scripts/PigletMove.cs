@@ -11,6 +11,7 @@ public class PigletMove : MonoBehaviour
     public bool isBiggaPigga;
 
     [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float movingSpeed;
     float requirement = 0.05f;
 
     bool isWaiting;
@@ -80,6 +81,6 @@ public class PigletMove : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         pigCollider2D.enabled = true;
-        moveSpeed = 3f;
+        moveSpeed = movingSpeed;
     }
 }

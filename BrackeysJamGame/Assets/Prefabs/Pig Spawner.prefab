@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3052989659140459565}
   m_Layer: 0
   m_Name: Pig Spawner
-  m_TagString: Untagged
+  m_TagString: spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPig
   pigs:
   - {fileID: 2250147101571189329, guid: e9f02b931c7de1a4c9839823a74727c7, type: 3}
+  rarePigs:
+  - {fileID: 9126263082620842945, guid: 0a8bca85a7a5db04e92d06323795d22d, type: 3}
   shadow: {fileID: 174808387932261449, guid: 40c7cdbe6b46a034aa52866f8911140c, type: 3}
-  cooldown: 10
+  cooldown: 3
+  rarePigChance: 10
   maxPigs: 5
   currentPigs: 0
