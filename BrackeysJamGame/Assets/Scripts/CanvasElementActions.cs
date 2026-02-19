@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class CanvasElementActions : MonoBehaviour
     public RawImage buildPanelImage;
     public GameObject sacrificeCirclePrefab;
     public GameObject carrotDummyPrefab;
+    public LayerMask objectLayer;
 
     public RectTransform upgradeMenuRect;
     public RectTransform destroyMenuRect;
@@ -124,14 +126,24 @@ public class CanvasElementActions : MonoBehaviour
 
     public void EnableDestroying()
     {
-        LowerAlpha();
         if (buildMode.isMoving == false)
         {
-            if (buildMode.isDestroying == true) buildMode.isDestroying = false;
-            else buildMode.isDestroying = true;
+            if (buildMode.isDestroying == true)
+            {
+                buildMode.isDestroying = false;
+                DeHighlightObjects();
+                NormalAlpha();
+            }
+            else
+            {
+                buildMode.isDestroying = true;
+                HighlightDeleteObjects();
+                LowerAlpha();
+            }
         }
         else
         {
+            HighlightDeleteObjects();
             buildMode.isMoving = false;
             buildMode.isDestroying = true;
         }
@@ -139,15 +151,26 @@ public class CanvasElementActions : MonoBehaviour
 
     public void EnableMoving()
     {
-        LowerAlpha();
+        
         if (buildMode.isDestroying == false)
         {
-            if (buildMode.isMoving == true) buildMode.isMoving = false;
-            else buildMode.isMoving = true;
+            if (buildMode.isMoving == true)
+            {
+                buildMode.isMoving = false;
+                DeHighlightObjects();
+                NormalAlpha();
+            }
+            else
+            {
+                buildMode.isMoving = true;
+                HighlightMoveObjects();
+                LowerAlpha();
+            }
         }
         else
         {
             buildMode.isMoving = true;
+            HighlightMoveObjects();
             buildMode.isDestroying = false;
         }
     }
@@ -155,7 +178,7 @@ public class CanvasElementActions : MonoBehaviour
     public void NormalAlpha()
     {
         Color c = buildPanelImage.color;
-        c.a = 0.18f;
+        c.a = 0.10f;
         buildPanelImage.color = c;
     }
     public void LowerAlpha()
@@ -165,5 +188,51 @@ public class CanvasElementActions : MonoBehaviour
         buildPanelImage.color = c;
     }
 
+    public void HighlightMoveObjects()
+    {
+        GameObject[] all = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+        foreach (GameObject go in all)
+        {
+            if (((1 << go.layer) & objectLayer) != 0)
+            {
+                Transform objTransform = go.GetComponent<Transform>();
+                go.GetComponent<SpriteRenderer>().color = Color.green;
+                if (buildMode.isDestroying == false)
+                {
+                    objTransform.localScale = new Vector2(objTransform.localScale.x * 1.2f, objTransform.localScale.y * 1.2f);
+                }      
+            }
+        }
+    }
 
+    public void HighlightDeleteObjects()
+    {
+        GameObject[] all = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+        foreach (GameObject go in all)
+        {
+            if (((1 << go.layer) & objectLayer) != 0)
+            {
+                Transform objTransform = go.GetComponent<Transform>();
+                go.GetComponent<SpriteRenderer>().color = Color.red;
+                if(buildMode.isMoving == false)
+                {
+                    objTransform.localScale = new Vector2(objTransform.localScale.x * 1.2f, objTransform.localScale.y * 1.2f);
+                }       
+            }
+        }
+    }
+
+    public void DeHighlightObjects()
+    {
+        GameObject[] all = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+        foreach (GameObject go in all)
+        {
+            if (((1 << go.layer) & objectLayer) != 0)
+            {
+                Transform objTransform = go.GetComponent<Transform>();
+                go.GetComponent<SpriteRenderer>().color = Color.white;
+                objTransform.localScale = new Vector2(objTransform.localScale.x / 1.2f, objTransform.localScale.y / 1.2f);
+            }
+        }
+    }
 }

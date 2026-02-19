@@ -5,7 +5,8 @@ public class ObjectDragger : MonoBehaviour
     private BoxCollider2D coll;
     private CircleCollider2D circle;
     private SpriteRenderer sr;
-    private CarrotDummy cDummy;
+    public CarrotDummy cDummy;
+    CanvasElementActions actionsScript;
     public bool beenBought;
     public bool canPlace;
     public int buyingPrice;
@@ -20,6 +21,8 @@ public class ObjectDragger : MonoBehaviour
         circle = GetComponent<CircleCollider2D>();
         sr = GetComponent<SpriteRenderer>();
         cDummy = GetComponent<CarrotDummy>();
+
+        actionsScript = GameObject.FindGameObjectWithTag("canvas").GetComponent<CanvasElementActions>();
 
         sfxManager = GameObject.FindGameObjectWithTag("sfxManager");
         audioScript = sfxManager.GetComponent<AudioScript>();
@@ -63,12 +66,14 @@ public class ObjectDragger : MonoBehaviour
             coll.enabled = false;
             if(circle != null) circle.enabled = true;
             if (beenBought)
+            {
                 audioScript.PlayBuildThud();
+                actionsScript.NormalAlpha();
+                if (cDummy != null) cDummy.ActivateCarrotDummy();
+            }
             beenBought = false;
             c.a = 1f;
             sr.color = c;
-            if (cDummy != null) cDummy.ActivateCarrotDummy();
-        }
-          
+        }  
     }
 }

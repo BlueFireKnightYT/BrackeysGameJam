@@ -16,7 +16,12 @@ public class BuildMode : MonoBehaviour
             if (hit != null && CurrencyHandler.baconAmount >= 5)
             {
                 hit.gameObject.GetComponent<ObjectDragger>().beenBought = true;
-                actionsScript.NormalAlpha();
+                hit.gameObject.GetComponent<ObjectDragger>().canPlace = true;
+                if (hit.gameObject.GetComponent<ObjectDragger>().cDummy != null)
+                {
+                    hit.gameObject.GetComponent<ObjectDragger>().cDummy.DeactivateCarrotDummy();
+                }
+                actionsScript.DeHighlightObjects();
                 isMoving = false;
             }
         }
@@ -30,7 +35,11 @@ public class BuildMode : MonoBehaviour
                 Destroy(hit.gameObject);
                 int price = hit.gameObject.GetComponent<ObjectDragger>().buyingPrice;
                 CurrencyHandler.baconAmount += price / 2;
-                actionsScript.NormalAlpha();
+                if(hit.gameObject.GetComponent<ObjectDragger>().cDummy != null)
+                {
+                    hit.gameObject.GetComponent<ObjectDragger>().cDummy.DeactivateCarrotDummy();
+                }
+                actionsScript.DeHighlightObjects();
                 isDestroying = false;
             }
         }
