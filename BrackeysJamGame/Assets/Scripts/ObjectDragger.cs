@@ -8,6 +8,7 @@ public class ObjectDragger : MonoBehaviour
     private CarrotDummy cDummy;
     public bool beenBought;
     public bool canPlace;
+    public int buyingPrice;
     Color c;
     AudioScript audioScript;
     GameObject sfxManager;

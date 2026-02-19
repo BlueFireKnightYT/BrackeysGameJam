@@ -20,6 +20,5 @@ public class CurrencyHandler : MonoBehaviour
             float baconAmountM = baconAmount / 1000000f;
             baconText.text = baconAmountM.ToString("F2") + "M";
         }
-            Debug.Log(baconAmount);
     }
 }

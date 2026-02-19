@@ -4,6 +4,7 @@ public class CanvasElementActions : MonoBehaviour
 {
     public GameObject upgradeMenu;
     public GameObject upgradeButton;
+    public GameObject buildModePanel;
     public GameObject sacrificeCirclePrefab;
     public GameObject carrotDummyPrefab;
 
@@ -55,10 +56,11 @@ public class CanvasElementActions : MonoBehaviour
 
     public void PurchaseSacrificeCircle()
     {
-        if (CurrencyHandler.baconAmount >= 5)
+        int price = sacrificeCirclePrefab.GetComponent<ObjectDragger>().buyingPrice;
+        if (CurrencyHandler.baconAmount >= price)
         {
             GameObject obj = Instantiate(sacrificeCirclePrefab, spawnPos, Quaternion.identity);
-            CurrencyHandler.baconAmount -= 5;
+            CurrencyHandler.baconAmount -= price;
             obj.GetComponent<ObjectDragger>().beenBought = true;
             DisableMenu();
         }
@@ -66,12 +68,55 @@ public class CanvasElementActions : MonoBehaviour
 
     public void PurchaseCarrotDummy()
     {
-        if (CurrencyHandler.baconAmount >= 10)
+        int price = carrotDummyPrefab.GetComponent<ObjectDragger>().buyingPrice;
+        if (CurrencyHandler.baconAmount >= price)
         {
             GameObject obj = Instantiate(carrotDummyPrefab, spawnPos, Quaternion.identity);
-            CurrencyHandler.baconAmount -= 10;
+            CurrencyHandler.baconAmount -= price;
             obj.GetComponent<ObjectDragger>().beenBought = true;
             DisableMenu();
+        }
+    }
+
+    public void OpenDestroyMenu()
+    {
+        menuOpen = false;
+        buildModePanel.SetActive(true);
+    }
+
+    public void CloseDestroyMenu()
+    {
+        menuOpen = true;
+        buildModePanel.SetActive(false);
+    }
+
+    public void EnableDestroying()
+    {
+        BuildMode script = buildModePanel.GetComponent<BuildMode>();
+        if (script.isMoving == false)
+        {
+            if (script.isDestroying == true) script.isDestroying = false;
+            else script.isDestroying = true;
+        }
+        else
+        {
+            script.isMoving = false;
+            script.isDestroying = true;
+        }
+    }
+
+    public void EnableMoving()
+    {
+        BuildMode script = buildModePanel.GetComponent<BuildMode>();
+        if (script.isDestroying == false)
+        {
+            if (script.isMoving == true) script.isMoving = false;
+            else script.isMoving = true;
+        }
+        else
+        {
+            script.isMoving = true;
+            script.isDestroying = false;
         }
     }
 

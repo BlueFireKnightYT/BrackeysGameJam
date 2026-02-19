@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectDragger
   beenBought: 0
   canPlace: 0
+  buyingPrice: 10
 --- !u!114 &2097538265609801560
 MonoBehaviour:
   m_ObjectHideFlags: 0
