@@ -1,17 +1,22 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasElementActions : MonoBehaviour
 {
     public GameObject upgradeMenu;
     public GameObject upgradeButton;
-    public GameObject buildModePanel;
+    public BuildMode buildMode;
+    public GameObject buildPanel;
+    public RawImage buildPanelImage;
     public GameObject sacrificeCirclePrefab;
     public GameObject carrotDummyPrefab;
 
-    RectTransform upgradeMenuRect;
+    public RectTransform upgradeMenuRect;
+    public RectTransform destroyMenuRect;
 
     Vector2 destination = new Vector2(0, 0);
     Vector2 startPos = new Vector2(-650, 0);
+    Vector2 startPos2 = new Vector2(0, 1080);
     Vector2 cursorWorldPos;
     Vector2 spawnPos;
 
@@ -19,11 +24,13 @@ public class CanvasElementActions : MonoBehaviour
     GameObject sfxManager;
     AudioSource source;
 
-    bool menuOpen;
+    bool menuOpen = false;
+    bool destroyMenuOpen = false;
     [SerializeField] float menuLerpSpeed = 8f;
 
     private void Start()
     {
+        buildPanelImage = buildPanel.GetComponent<RawImage>();
         upgradeMenuRect = upgradeMenu.GetComponent<RectTransform>();
         upgradeMenuRect.anchoredPosition = startPos;
         sfxManager = GameObject.FindGameObjectWithTag("sfxManager");
@@ -44,14 +51,49 @@ public class CanvasElementActions : MonoBehaviour
         {
             upgradeMenuRect.anchoredPosition = target;
         }
+        //2
+        Vector2 target2 = destroyMenuOpen ? destination : startPos2;
+        destroyMenuRect.anchoredPosition = Vector2.Lerp(destroyMenuRect.anchoredPosition, target2, Time.deltaTime * menuLerpSpeed);
+
+        if (Vector2.Distance(destroyMenuRect.anchoredPosition, target2) < 0.1f)
+        {
+            destroyMenuRect.anchoredPosition = target2;
+        }
     }
 
-    public void UpgradeButtonPressed()
+    public void OpenMenu()
     {
         audioScript.PlayButtonClick();
         audioScript.PlayMenuSwoosh();
         menuOpen = true;
         upgradeButton.SetActive(false);
+    }
+
+    public void DisableMenu()
+    {
+        audioScript.PlayButtonClick();
+        audioScript.PlayMenuSwoosh();
+        menuOpen = false;
+        upgradeButton.SetActive(true);
+    }
+
+    public void OpenDestroyMenu()
+    {
+        menuOpen = false;
+        destroyMenuOpen = true;
+        audioScript.PlayButtonClick();
+        audioScript.PlayMenuSwoosh();
+        buildMode.enabled = true;
+    }
+
+    public void CloseDestroyMenu()
+    {
+        menuOpen = true;
+        destroyMenuOpen = false;
+        audioScript.PlayButtonClick();
+        audioScript.PlayMenuSwoosh();
+        buildMode.enabled = false;
+
     }
 
     public void PurchaseSacrificeCircle()
@@ -78,53 +120,50 @@ public class CanvasElementActions : MonoBehaviour
         }
     }
 
-    public void OpenDestroyMenu()
-    {
-        menuOpen = false;
-        buildModePanel.SetActive(true);
-    }
 
-    public void CloseDestroyMenu()
-    {
-        menuOpen = true;
-        buildModePanel.SetActive(false);
-    }
 
     public void EnableDestroying()
     {
-        BuildMode script = buildModePanel.GetComponent<BuildMode>();
-        if (script.isMoving == false)
+        LowerAlpha();
+        if (buildMode.isMoving == false)
         {
-            if (script.isDestroying == true) script.isDestroying = false;
-            else script.isDestroying = true;
+            if (buildMode.isDestroying == true) buildMode.isDestroying = false;
+            else buildMode.isDestroying = true;
         }
         else
         {
-            script.isMoving = false;
-            script.isDestroying = true;
+            buildMode.isMoving = false;
+            buildMode.isDestroying = true;
         }
     }
 
     public void EnableMoving()
     {
-        BuildMode script = buildModePanel.GetComponent<BuildMode>();
-        if (script.isDestroying == false)
+        LowerAlpha();
+        if (buildMode.isDestroying == false)
         {
-            if (script.isMoving == true) script.isMoving = false;
-            else script.isMoving = true;
+            if (buildMode.isMoving == true) buildMode.isMoving = false;
+            else buildMode.isMoving = true;
         }
         else
         {
-            script.isMoving = true;
-            script.isDestroying = false;
+            buildMode.isMoving = true;
+            buildMode.isDestroying = false;
         }
     }
 
-    public void DisableMenu()
+    public void NormalAlpha()
     {
-        audioScript.PlayButtonClick();
-        audioScript.PlayMenuSwoosh();
-        menuOpen = false;
-        upgradeButton.SetActive(true);
+        Color c = buildPanelImage.color;
+        c.a = 0.18f;
+        buildPanelImage.color = c;
     }
+    public void LowerAlpha()
+    {
+        Color c = buildPanelImage.color;
+        c.a = 0.01f;
+        buildPanelImage.color = c;
+    }
+
+
 }

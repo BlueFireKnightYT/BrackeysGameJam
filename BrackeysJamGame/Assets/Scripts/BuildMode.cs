@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class BuildMode : MonoBehaviour
 {
@@ -17,6 +16,7 @@ public class BuildMode : MonoBehaviour
             if (hit != null && CurrencyHandler.baconAmount >= 5)
             {
                 hit.gameObject.GetComponent<ObjectDragger>().beenBought = true;
+                actionsScript.NormalAlpha();
                 isMoving = false;
             }
         }
@@ -30,7 +30,8 @@ public class BuildMode : MonoBehaviour
                 Destroy(hit.gameObject);
                 int price = hit.gameObject.GetComponent<ObjectDragger>().buyingPrice;
                 CurrencyHandler.baconAmount += price / 2;
-                isMoving = false;
+                actionsScript.NormalAlpha();
+                isDestroying = false;
             }
         }
     }
