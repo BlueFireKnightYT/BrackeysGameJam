@@ -42,6 +42,7 @@ public class BuildMode : MonoBehaviour
                 actionsScript.DeHighlightObjects();
                 isDestroying = false;
             }
+            actionsScript.NormalAlpha();
         }
     }
 }
