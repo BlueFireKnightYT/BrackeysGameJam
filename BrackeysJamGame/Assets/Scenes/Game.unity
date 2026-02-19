@@ -1528,14 +1528,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3052989659140459565, guid: 2b2a6b7f0459a264383f6474290326ce, type: 3}
       propertyPath: pigs.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3052989659140459565, guid: 2b2a6b7f0459a264383f6474290326ce, type: 3}
       propertyPath: 'pigs.Array.data[1]'
       value: 
-      objectReference: {fileID: 2698297659150846531, guid: f8b1fe2053f6b4348b06cd40e547f70a, type: 3}
+      objectReference: {fileID: 2250147101571189329, guid: e9f02b931c7de1a4c9839823a74727c7, type: 3}
     - target: {fileID: 3052989659140459565, guid: 2b2a6b7f0459a264383f6474290326ce, type: 3}
       propertyPath: 'pigs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2698297659150846531, guid: f8b1fe2053f6b4348b06cd40e547f70a, type: 3}
+    - target: {fileID: 3052989659140459565, guid: 2b2a6b7f0459a264383f6474290326ce, type: 3}
+      propertyPath: 'pigs.Array.data[3]'
       value: 
       objectReference: {fileID: 7784025764614224975, guid: bf0c6b038424e2e49bc3233dacd13494, type: 3}
     m_RemovedComponents: []
