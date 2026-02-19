@@ -1,22 +1,28 @@
+using System.Collections;
 using UnityEngine;
 
 public class AudioScript : MonoBehaviour
 {
-    AudioSource source;
+    public AudioSource source;
+    public AudioSource sourceVariablePitch;
     public AudioClip BigPigCrash;
     public AudioClip ButtonClick;
     public AudioClip MenuSwoosh;
     public AudioClip Thud;
-
-    private void Start()
-    {
-        source = GetComponent<AudioSource>();
-    }
+    public AudioClip TinyPigCrash;
 
     public void PlayBigPigCrash()
     {
         source.PlayOneShot(BigPigCrash);
     }
+    public void PlayTinyPigCrash()
+    {
+        float pitchDifference = Random.Range(0.7f, 1.3f);
+        sourceVariablePitch.pitch = pitchDifference;
+        sourceVariablePitch.PlayOneShot(TinyPigCrash);
+        StartCoroutine(waitForEnd(TinyPigCrash));
+    }
+    
     public void PlayButtonClick()
     {
         source.PlayOneShot(ButtonClick);
@@ -28,5 +34,11 @@ public class AudioScript : MonoBehaviour
     public void PlayBuildThud()
     {
         source.PlayOneShot(Thud);
+    }
+
+    IEnumerator waitForEnd(AudioClip clip)
+    {
+        yield return new WaitForSeconds(clip.length);
+        sourceVariablePitch.pitch = 1;
     }
 }

@@ -118,6 +118,10 @@ public class PigletMove : MonoBehaviour
             screenShake.StartCoroutine(screenShake.shake());
             audioScript.PlayBigPigCrash();
         }
+        else
+        {
+            audioScript.PlayTinyPigCrash();
+        }
 
     }
 
