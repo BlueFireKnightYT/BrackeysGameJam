@@ -810,6 +810,7 @@ MonoBehaviour:
   upgradeButton: {fileID: 1607321593}
   buildMode: {fileID: 964868065}
   buildPanel: {fileID: 964868061}
+  buildPanelImage: {fileID: 0}
   sacrificeCirclePrefab: {fileID: 4165119512769423125, guid: 409dc3f4c4d0af64cb17155d99a41c8e, type: 3}
   carrotDummyPrefab: {fileID: 3972990917842326089, guid: 190f27a53b30a6e45a582d29c5aecfde, type: 3}
   upgradeMenuRect: {fileID: 214789497}
@@ -1386,8 +1387,8 @@ GameObject:
   m_Component:
   - component: {fileID: 964868062}
   - component: {fileID: 964868064}
-  - component: {fileID: 964868063}
   - component: {fileID: 964868065}
+  - component: {fileID: 964868066}
   m_Layer: 5
   m_Name: BuildingMode
   m_TagString: Untagged
@@ -1417,36 +1418,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1080}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &964868063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964868061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.07058824}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &964868064
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1472,7 +1443,34 @@ MonoBehaviour:
   objectLayer:
     serializedVersion: 2
     m_Bits: 72
-  actionsScript: {fileID: 0}
+  actionsScript: {fileID: 468260818}
+--- !u!114 &964868066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964868061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.07058824}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1001 &966992533
 PrefabInstance:
   m_ObjectHideFlags: 0
