@@ -4,8 +4,11 @@ using UnityEngine;
 public class ScreenShake : MonoBehaviour
 {
     float elapsedTime = 0f;
-    float shakeTime = 0.4f;
-    float shakeAmount = 1f;
+
+    float ogShakeTime = 0.4f;
+    float ogShakeAmount = 1;
+    public float shakeTime = 0.4f;
+    public float shakeAmount = 1f;
 
     public IEnumerator shake()
     {
@@ -18,5 +21,8 @@ public class ScreenShake : MonoBehaviour
         }
         transform.localPosition = startPos;
         elapsedTime = 0f;
+        shakeTime = ogShakeTime;
+        shakeAmount = ogShakeAmount;
+        transform.position = new Vector3(0, 0, -10);
     }
 }

@@ -1,5 +1,7 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class CountHandler : MonoBehaviour
 {
@@ -12,8 +14,21 @@ public class CountHandler : MonoBehaviour
     public int baconMultiplier;
     public int candlesMultiplier;
     Animator anim;
+    GameObject cam;
+    ScreenShake screenShake;
+
+    GameObject sfxManager;
+    AudioScript audioScript;
+
+
     private void Start()
     {
+        cam = GameObject.FindGameObjectWithTag("MainCamera");
+        screenShake = cam.GetComponent<ScreenShake>();
+
+        sfxManager = GameObject.FindGameObjectWithTag("sfxManager");
+        audioScript = sfxManager.GetComponent<AudioScript>();
+
         circeColl = GetComponent<CircleCollider2D>();
         anim = GetComponent<Animator>();
     }
@@ -34,6 +49,13 @@ public class CountHandler : MonoBehaviour
 
     public void UpgradeSacrificeCircle()
     {
+        screenShake.shakeTime = 1.4f;
+        screenShake.shakeAmount = .3f;
+
+        screenShake.shake();
+
+        audioScript.PlayUpgradeSFX();
+
         if (hasFire)
         {
             sacrificeTimer = fireTimer;
@@ -45,4 +67,6 @@ public class CountHandler : MonoBehaviour
             anim.SetTrigger("CandleUpgrade");
         }
     }
+
+    
 }
