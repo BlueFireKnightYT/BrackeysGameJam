@@ -8,6 +8,7 @@ public class PigletCollision : MonoBehaviour
     public int baconObtained;
     public bool isSacrificed;
     private SpawnPig spawnScript;
+    public GameObject fireAnimation;
     void Start()
     {
         pMove = GetComponent<PigletMove>();
@@ -27,6 +28,7 @@ public class PigletCollision : MonoBehaviour
                     pMove.piggyAnimator.SetBool("moving", false);
                     if(pMove.isBiggaPigga) pMove.piggyAnimator.speed = 0f;
                     pMove.enabled = false;
+                    Instantiate(fireAnimation, transform.position, Quaternion.identity, transform);
                     transform.position = collision.gameObject.transform.position;
                     Destroy(gameObject, collision.gameObject.GetComponent<CountHandler>().sacrificeTimer);
                     collision.GetComponent<CountHandler>().isOccupied = true;
@@ -50,5 +52,6 @@ public class PigletCollision : MonoBehaviour
         sacrificeCircle.GetComponent<CountHandler>().isOccupied = false;
         CurrencyHandler.baconAmount += baconObtained * sacrificeCircle.GetComponent<CountHandler>().baconMultiplier;
         spawnScript.currentPigs--;
+        CurrencyHandler.pigsSacrificed++;
     }
 }

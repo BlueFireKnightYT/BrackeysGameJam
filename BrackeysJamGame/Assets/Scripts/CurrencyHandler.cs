@@ -5,6 +5,7 @@ public class CurrencyHandler : MonoBehaviour
 {
     public static int baconAmount;
     public TextMeshProUGUI baconText;
+    public static int pigsSacrificed;
 
     private void Update()
     {

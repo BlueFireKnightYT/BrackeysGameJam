@@ -206,7 +206,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 0.75}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PigletCollision
   baconObtained: 1
   isSacrificed: 0
+  fireAnimation: {fileID: 7478053694990357197, guid: 418942282db8d034093cdfc72e735f75, type: 3}
 --- !u!114 &2277505670224852372
 MonoBehaviour:
   m_ObjectHideFlags: 0

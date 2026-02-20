@@ -228,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PigletCollision
   baconObtained: 5
   isSacrificed: 0
+  fireAnimation: {fileID: 7478053694990357197, guid: 418942282db8d034093cdfc72e735f75, type: 3}
 --- !u!114 &1908138287025788641
 MonoBehaviour:
   m_ObjectHideFlags: 0

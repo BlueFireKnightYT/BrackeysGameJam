@@ -13,6 +13,7 @@ public class CanvasElementActions : MonoBehaviour
     public GameObject carrotDummyPrefab;
     public GameObject candlesUpgradePrefab;
     public GameObject fireUpgradePrefab;
+    public GameObject pigRainerPrefab;
     public LayerMask objectLayer;
     public static bool canDragPigs;
     public static bool canActivateMenu;
@@ -158,6 +159,23 @@ public class CanvasElementActions : MonoBehaviour
             obj.GetComponent<ObjectDragger>().beenBought = true;
             canActivateMenu = false;
             DisableMenu();
+        }
+    }
+
+    public void PurchasePigRainer()
+    {
+        if(CurrencyHandler.pigsSacrificed >= 50)
+        {
+            int price = pigRainerPrefab.GetComponent<ObjectDragger>().buyingPrice;
+            if(CurrencyHandler.baconAmount >= price)
+            {
+                GameObject obj = Instantiate(pigRainerPrefab, spawnPos, Quaternion.identity);
+                CurrencyHandler.baconAmount -= price;
+                CurrencyHandler.pigsSacrificed -= 50;
+                obj.GetComponent<ObjectDragger>().beenBought = true;
+                canActivateMenu = false;
+                DisableMenu();
+            }
         }
     }
 
