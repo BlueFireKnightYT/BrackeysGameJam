@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class Dragging : MonoBehaviour
@@ -7,17 +8,17 @@ public class Dragging : MonoBehaviour
     private PigletCollision pigColl;
     private PigletMove moveScript;
     SpriteRenderer sr;
-    AudioScript audioScript;
-    GameObject sfxManager;
+    AudioSource sfx;
+
+    public AudioClip[] oinkClips;
 
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        sfx = GetComponent<AudioSource>();
         boxColl = GetComponent<BoxCollider2D>();
         pigColl = GetComponent<PigletCollision>();
         moveScript = GetComponent<PigletMove>();
-        sfxManager = GameObject.FindGameObjectWithTag("sfxManager");
-        audioScript = sfxManager.GetComponent<AudioScript>();
     }
     void Update()
     {
@@ -34,7 +35,9 @@ public class Dragging : MonoBehaviour
             isDragging = true;
             boxColl.enabled = false;
             pigColl.enabled = false;
-            audioScript.PlayTinyPigOink();
+            float pitchDifference = Random.Range(0.9f, 1.1f);
+            sfx.pitch = pitchDifference;
+            sfx.PlayOneShot(oinkClips[Random.Range(0, oinkClips.Length)]);
 
             Color c = sr.color;
             c.a = 0.5f;

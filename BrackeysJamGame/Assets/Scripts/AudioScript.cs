@@ -16,6 +16,8 @@ public class AudioScript : MonoBehaviour
     public AudioClip Thud;
     public AudioClip TinyPigCrash;
     public AudioClip UpgradeSFX;
+    public AudioClip OnFireSFX;
+    public AudioClip BaconCollectSFX;
     public AudioClip[] Oinks;
 
     private void Start()
@@ -60,6 +62,24 @@ public class AudioScript : MonoBehaviour
     public void PlayUpgradeSFX()
     {
         source.PlayOneShot(UpgradeSFX);
+    }
+
+    public void PlayOnFireSFX()
+    {
+        source.PlayOneShot(OnFireSFX);
+        Invoke("StopFireSFX", 3f);
+    }
+
+    private void StopFireSFX()
+    {
+        source.Stop();
+    }
+
+    public void PlayBaconCollectSFX()
+    {
+        float pitchDifference = Random.Range(0.9f, 1.1f);
+        sourceVariablePitch.pitch = pitchDifference;
+        source.PlayOneShot(BaconCollectSFX);
     }
 
     IEnumerator waitForEnd(AudioClip clip)

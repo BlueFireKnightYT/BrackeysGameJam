@@ -19,4 +19,4 @@ MonoBehaviour:
   basePrice: 20
   realPrice: 20
   unlockAmount: 25
-  upgradeImage: {fileID: -1137738870117198398, guid: e3dd9c74c20858a44b404c6f1f742ba5, type: 3}
+  upgradeImage: {fileID: -7803360663234129247, guid: d68cfac19d649b74b8b1a442aef12e81, type: 3}
