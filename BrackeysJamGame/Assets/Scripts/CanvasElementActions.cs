@@ -22,17 +22,29 @@ public class CanvasElementActions : MonoBehaviour
     Vector2 startPos2 = new Vector2(0, 1080);
     Vector2 cursorWorldPos;
     Vector2 spawnPos;
-    public RectTransform upgradeMenuRect;
-    public RectTransform destroyMenuRect;
+
 
     [Header("Menu's")]
+
+    [SerializeField] float menuLerpSpeed = 8f;
+
     public GameObject upgradeMenu;
+
     public BuildMode buildMode;
     public GameObject buildPanel;
     public RawImage buildPanelImage;
-    [SerializeField] float menuLerpSpeed = 8f;
+
+    public RectTransform upgradeMenuRect;
+    public RectTransform destroyMenuRect;
+    public RectTransform settingsMenuRect;
+
     bool menuOpen = false;
     bool destroyMenuOpen = false;
+    bool settingsMenuOpen = false;
+
+    [Header("Settings")]
+
+    public Slider MusicVolumeSlider;
 
     [Header("Rest")]
     public LayerMask objectLayer;
@@ -41,6 +53,8 @@ public class CanvasElementActions : MonoBehaviour
 
     AudioScript audioScript;
     GameObject sfxManager;
+
+
 
     private void Start()
     {
@@ -66,13 +80,21 @@ public class CanvasElementActions : MonoBehaviour
         {
             upgradeMenuRect.anchoredPosition = target;
         }
-        //2
+        //destroy menu
         Vector2 target2 = destroyMenuOpen ? destination : startPos2;
         destroyMenuRect.anchoredPosition = Vector2.Lerp(destroyMenuRect.anchoredPosition, target2, Time.deltaTime * menuLerpSpeed);
 
         if (Vector2.Distance(destroyMenuRect.anchoredPosition, target2) < 0.1f)
         {
             destroyMenuRect.anchoredPosition = target2;
+        }
+        //settings menu
+        Vector2 target3 = settingsMenuOpen ? destination : startPos2;
+        settingsMenuRect.anchoredPosition = Vector2.Lerp(settingsMenuRect.anchoredPosition, target3, Time.deltaTime * menuLerpSpeed);
+
+        if (Vector2.Distance(settingsMenuRect.anchoredPosition, target3) < 0.1f)
+        {
+            settingsMenuRect.anchoredPosition = target3;
         }
     }
 
@@ -83,6 +105,8 @@ public class CanvasElementActions : MonoBehaviour
             audioScript.PlayButtonClick();
             audioScript.PlayMenuSwoosh();
             menuOpen = true;
+            settingsMenuOpen = false;
+            destroyMenuOpen = false;
             upgradeButton.SetActive(false);
         }
     }
@@ -98,7 +122,9 @@ public class CanvasElementActions : MonoBehaviour
     public void OpenDestroyMenu()
     {
         menuOpen = false;
+        settingsMenuOpen = false;
         destroyMenuOpen = true;
+
         audioScript.PlayButtonClick();
         audioScript.PlayMenuSwoosh();
         buildMode.enabled = true;
@@ -109,12 +135,41 @@ public class CanvasElementActions : MonoBehaviour
     {
         menuOpen = true;
         destroyMenuOpen = false;
+        settingsMenuOpen = false;
+
         audioScript.PlayButtonClick();
         audioScript.PlayMenuSwoosh();
         if (buildMode.isMoving || buildMode.isDestroying) DeHighlightObjects();
         buildMode.enabled = false;
         canDragPigs = true;
     }
+
+    public void OpenSettingsMenu()
+    {
+        settingsMenuOpen = true;
+        destroyMenuOpen = false;
+        menuOpen = false;
+
+        settingsButton.SetActive(false);
+        upgradeButton.SetActive(false);
+    }
+
+    public void CloseSettingsMenu()
+    {
+        settingsMenuOpen = false;
+        settingsButton.SetActive(true);
+        upgradeButton.SetActive(true);
+
+        if (buildMode.isMoving || buildMode.isDestroying) DeHighlightObjects();
+        buildMode.enabled = false;
+        canDragPigs = true;
+    }
+
+    public void ChangeMusicVolume()
+    {
+        audioScript.musicSource.volume = MusicVolumeSlider.value;
+    }
+
     public void EnableDestroying()
     {
         if (buildMode.isMoving == false)
