@@ -6,12 +6,29 @@ public class UpgradeStructureHolder : MonoBehaviour
 {
     public UpgradeStructure structure;
     public Image image;
+    public GameObject questionMark;
     public TextMeshProUGUI priceText;
     public TextMeshProUGUI nameText;
+    public bool unlocked;
 
     public void Awake()
     {
-        structure.basePrice = structure.realPrice;
+        structure.realPrice = structure.basePrice;
+        image.color = new Color32(50, 50, 50, 100);
+        unlocked = false;
+        priceText.enabled = false;
+        nameText.enabled = false;
+    }
+
+    private void Update()
+    {
+        if(CurrencyHandler.pigsSacrificed >= structure.unlockAmount)
+        {
+            image.color = new Color32(255, 255, 255, 255);
+            unlocked = true;
+            priceText.enabled = true;
+            nameText.enabled = true;
+        }
     }
     private void Start()
     {

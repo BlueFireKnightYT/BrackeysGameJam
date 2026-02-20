@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Carrot Dummy
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeStructure
   structureName: Carrot Dummy
-  structurePrefab: {fileID: 3423228767560781299, guid: 23b7643a282d99342bcc2af90e755398, type: 3}
+  structurePrefab: {fileID: 3972990917842326089, guid: 190f27a53b30a6e45a582d29c5aecfde, type: 3}
   structureID: 3
   isUpgrade: 0
   basePrice: 10
-  realPrice: 10
+  realPrice: 17
   unlockAmount: 15
   upgradeImage: {fileID: 2451487089850933757, guid: 58f7ad087f8786d42981b4e836f1fe70, type: 3}

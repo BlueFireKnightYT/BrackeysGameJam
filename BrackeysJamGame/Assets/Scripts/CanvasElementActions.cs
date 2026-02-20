@@ -228,7 +228,7 @@ public class CanvasElementActions : MonoBehaviour
     public void PurchaseObject(UpgradeStructureHolder script)
     {
         UpgradeStructure obj = script.structure;
-        if (CurrencyHandler.baconAmount >= obj.realPrice)
+        if (CurrencyHandler.baconAmount >= obj.realPrice && script.unlocked)
         {
             GameObject structure = Instantiate(obj.structurePrefab, spawnPos, Quaternion.identity);
             CurrencyHandler.baconAmount -= obj.realPrice;
