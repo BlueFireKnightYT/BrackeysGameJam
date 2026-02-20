@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class Dragging : MonoBehaviour
 {
-    [SerializeField] bool isDragging = false;
+    public bool isDragging = false;
     private BoxCollider2D boxColl;
     private PigletCollision pigColl;
+    private PigletMove moveScript;
     SpriteRenderer sr;
     AudioScript audioScript;
     GameObject sfxManager;
@@ -14,6 +15,7 @@ public class Dragging : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         boxColl = GetComponent<BoxCollider2D>();
         pigColl = GetComponent<PigletCollision>();
+        moveScript = GetComponent<PigletMove>();
         sfxManager = GameObject.FindGameObjectWithTag("sfxManager");
         audioScript = sfxManager.GetComponent<AudioScript>();
     }
@@ -45,6 +47,7 @@ public class Dragging : MonoBehaviour
         isDragging = false;
         boxColl.enabled = true;
         pigColl.enabled = true;
+        moveScript.StartCoroutine(moveScript.newNextPos());
 
         Color c = sr.color;
         c.a = 1f;

@@ -6,12 +6,14 @@ public class Pigrainer : MonoBehaviour
     public float cooldownTimer;
     private bool onCooldown;
     private Canvas canvas;
+    Animator anim;
 
     private void Start()
     {
         spawnScript = GameObject.FindGameObjectWithTag("spawner").GetComponent<SpawnPig>();
         canvas = GetComponentInChildren<Canvas>();
         canvas.enabled = false;
+        anim = GetComponent<Animator>();
     }
     private void OnMouseDown()
     {
@@ -26,6 +28,7 @@ public class Pigrainer : MonoBehaviour
         if (CurrencyHandler.pigsSacrificed >= 50 && !onCooldown)
         {
             print("clicked");
+            anim.SetBool("isPressed", true);
             onCooldown = true;
             spawnScript.maxPigs = 50;
             spawnScript.cooldown = 0.1f;
@@ -48,5 +51,6 @@ public class Pigrainer : MonoBehaviour
     private void ResetCooldown()
     {
         onCooldown = false;
+        anim.SetBool("isPressed", false);
     }
 }

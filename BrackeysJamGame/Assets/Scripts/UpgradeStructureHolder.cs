@@ -6,7 +6,7 @@ public class UpgradeStructureHolder : MonoBehaviour
 {
     public UpgradeStructure structure;
     public Image image;
-    public GameObject questionMark;
+    public TextMeshProUGUI remainingSacrifices;
     public TextMeshProUGUI priceText;
     public TextMeshProUGUI nameText;
     public bool unlocked;
@@ -16,6 +16,7 @@ public class UpgradeStructureHolder : MonoBehaviour
         structure.realPrice = structure.basePrice;
         image.color = new Color32(50, 50, 50, 100);
         unlocked = false;
+        remainingSacrifices.enabled = true;
         priceText.enabled = false;
         nameText.enabled = false;
     }
@@ -28,6 +29,11 @@ public class UpgradeStructureHolder : MonoBehaviour
             unlocked = true;
             priceText.enabled = true;
             nameText.enabled = true;
+            remainingSacrifices.enabled = false;
+        }
+        if (!unlocked)
+        {
+            remainingSacrifices.text = (structure.unlockAmount - CurrencyHandler.pigsSacrificed).ToString();
         }
     }
     private void Start()

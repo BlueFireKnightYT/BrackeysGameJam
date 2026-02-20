@@ -14,6 +14,8 @@ public class PigletMove : MonoBehaviour
     public LayerMask carrotLayer;
     public bool carrotInRange;
     private GameObject closestCarrot;
+    public float minWait = 3f;
+    public float maxWait = 5f;
 
     GameObject cam;
     ScreenShake screenShake;
@@ -95,7 +97,7 @@ public class PigletMove : MonoBehaviour
     public IEnumerator newNextPos()
     {
         isWaiting = true;
-        float pauseTime = Random.Range(3f, 5f);
+        float pauseTime = Random.Range(minWait, maxWait);
         yield return new WaitForSeconds(pauseTime);
         if (!carrotInRange)
         {
