@@ -4722,6 +4722,10 @@ MonoBehaviour:
   Thud: {fileID: 8300000, guid: 038de9e043852544fbeb05d83d3e77bf, type: 3}
   TinyPigCrash: {fileID: 8300000, guid: d638abfaab494b744a9e3c2fe403f9b6, type: 3}
   UpgradeSFX: {fileID: 8300000, guid: b2e62600137e90745bf9e1429921d59c, type: 3}
+  Oinks:
+  - {fileID: 8300000, guid: 4b491e9c02bbec8409a7a467b9ec158d, type: 3}
+  - {fileID: 8300000, guid: 3bcdfc97630f15345baa06074af60e87, type: 3}
+  - {fileID: 8300000, guid: 9b85881d52834854db47b2811cea4c25, type: 3}
 --- !u!82 &2015291556
 AudioSource:
   m_ObjectHideFlags: 0

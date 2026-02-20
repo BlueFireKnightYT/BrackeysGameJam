@@ -11,6 +11,7 @@ public class AudioScript : MonoBehaviour
     public AudioClip Thud;
     public AudioClip TinyPigCrash;
     public AudioClip UpgradeSFX;
+    public AudioClip[] Oinks;
 
     public void PlayBigPigCrash()
     {
@@ -22,6 +23,16 @@ public class AudioScript : MonoBehaviour
         sourceVariablePitch.pitch = pitchDifference;
         sourceVariablePitch.PlayOneShot(TinyPigCrash);
         StartCoroutine(waitForEnd(TinyPigCrash));
+    }
+    public void PlayTinyPigOink()
+    {
+        float pitchDifference = Random.Range(0.9f, 1.1f);
+
+        sourceVariablePitch.pitch = pitchDifference;
+        int randomOink = Random.Range(0, Oinks.Length);
+        sourceVariablePitch.PlayOneShot(Oinks[randomOink]);
+
+        StartCoroutine(waitForEnd(Oinks[randomOink]));
     }
     
     public void PlayButtonClick()
