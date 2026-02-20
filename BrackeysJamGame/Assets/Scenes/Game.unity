@@ -1173,12 +1173,12 @@ MonoBehaviour:
   upgradeButton: {fileID: 1607321593}
   buildMode: {fileID: 964868065}
   buildPanel: {fileID: 964868061}
-  buildPanelImage: {fileID: 0}
+  buildPanelImage: {fileID: 964868066}
   sacrificeCirclePrefab: {fileID: 4165119512769423125, guid: 409dc3f4c4d0af64cb17155d99a41c8e, type: 3}
   carrotDummyPrefab: {fileID: 3972990917842326089, guid: 190f27a53b30a6e45a582d29c5aecfde, type: 3}
   candlesUpgradePrefab: {fileID: 6623360517235182071, guid: ca058fa118f464044a7b0097cc223610, type: 3}
   fireUpgradePrefab: {fileID: 5891024080229450204, guid: ebf82ef5abf038842b92714e758c2527, type: 3}
-  pigRainerPrefab: {fileID: 0}
+  pigRainerPrefab: {fileID: 3423228767560781299, guid: 23b7643a282d99342bcc2af90e755398, type: 3}
   objectLayer:
     serializedVersion: 2
     m_Bits: 72
