@@ -134,7 +134,7 @@ MonoBehaviour:
   nextPos: {x: -7, y: 4, z: 0}
   piggyAnimator: {fileID: 2718017418217249928}
   isBiggaPigga: 0
-  carrotSensingRange: 4
+  carrotSensingRange: 2
   carrotLayer:
     serializedVersion: 2
     m_Bits: 8
