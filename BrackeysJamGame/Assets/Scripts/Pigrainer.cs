@@ -2,9 +2,14 @@ using UnityEngine;
 
 public class Pigrainer : MonoBehaviour
 {
-    public SpawnPig spawnScript;
+    private SpawnPig spawnScript;
     public float cooldownTimer;
     private bool onCooldown;
+
+    private void Start()
+    {
+        spawnScript = GameObject.FindGameObjectWithTag("spawner").GetComponent<SpawnPig>();
+    }
     private void OnMouseDown()
     {
         if (CanvasElementActions.canActivateMenu)
