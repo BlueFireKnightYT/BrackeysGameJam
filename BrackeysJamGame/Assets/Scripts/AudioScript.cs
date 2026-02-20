@@ -5,6 +5,8 @@ public class AudioScript : MonoBehaviour
 {
     public AudioSource source;
     public AudioSource sourceVariablePitch;
+
+    public AudioClip Song;
     public AudioClip BigPigCrash;
     public AudioClip ButtonClick;
     public AudioClip MenuSwoosh;
@@ -12,6 +14,11 @@ public class AudioScript : MonoBehaviour
     public AudioClip TinyPigCrash;
     public AudioClip UpgradeSFX;
     public AudioClip[] Oinks;
+
+    private void Start()
+    {
+        StartCoroutine(PlaySongRepeating());
+    }
 
     public void PlayBigPigCrash()
     {
@@ -56,5 +63,13 @@ public class AudioScript : MonoBehaviour
     {
         yield return new WaitForSeconds(clip.length);
         sourceVariablePitch.pitch = 1;
+    }
+    IEnumerator PlaySongRepeating()
+    {
+        while (true)
+        { 
+            source.PlayOneShot(Song);
+            yield return new WaitForSeconds(Song.length);
+        }
     }
 }
