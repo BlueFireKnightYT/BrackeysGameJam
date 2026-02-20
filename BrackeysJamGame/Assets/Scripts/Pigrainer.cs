@@ -5,24 +5,37 @@ public class Pigrainer : MonoBehaviour
     private SpawnPig spawnScript;
     public float cooldownTimer;
     private bool onCooldown;
+    private Canvas canvas;
 
     private void Start()
     {
         spawnScript = GameObject.FindGameObjectWithTag("spawner").GetComponent<SpawnPig>();
+        canvas = GetComponentInChildren<Canvas>();
+        canvas.enabled = false;
     }
     private void OnMouseDown()
     {
         if (CanvasElementActions.canActivateMenu)
         {
-            if(CurrencyHandler.pigsSacrificed >= 50 && !onCooldown)
-            {
-                print("clicked");
-                onCooldown = true;
-                spawnScript.maxPigs = 50;
-                spawnScript.cooldown = 0.1f;
-                Invoke("UndoRain", 5);
-            }
+            canvas.enabled = true; 
         }
+    }
+
+    public void StartPigRain()
+    {
+        if (CurrencyHandler.pigsSacrificed >= 50 && !onCooldown)
+        {
+            print("clicked");
+            onCooldown = true;
+            spawnScript.maxPigs = 50;
+            spawnScript.cooldown = 0.1f;
+            Invoke("UndoRain", 5);
+        }
+    }
+
+    public void NoOption()
+    {
+        canvas.enabled=false;
     }
 
     private void UndoRain()

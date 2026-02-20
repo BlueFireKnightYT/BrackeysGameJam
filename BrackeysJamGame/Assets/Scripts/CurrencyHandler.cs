@@ -7,6 +7,11 @@ public class CurrencyHandler : MonoBehaviour
     public TextMeshProUGUI baconText;
     public static int pigsSacrificed;
     public TextMeshProUGUI sacrificedText;
+    public static int circlesOnScreen;
+    public static int candlesOnScreen;
+    public static int fireOnScreen;
+    public static int carrotsOnScreen;
+    public static int rainersOnScreen;
 
     private void Update()
     {

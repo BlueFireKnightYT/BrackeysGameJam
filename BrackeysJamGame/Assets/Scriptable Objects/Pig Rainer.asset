@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40493af9373a98478c64d2631642a77, type: 3}
+  m_Name: Pig Rainer
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeStructure
+  structureName: Pig Rainer
+  structurePrefab: {fileID: 3423228767560781299, guid: 23b7643a282d99342bcc2af90e755398, type: 3}
+  structureID: 4
+  isUpgrade: 0
+  basePrice: 20
+  realPrice: 20
+  unlockAmount: 25
+  upgradeImage: {fileID: -1137738870117198398, guid: e3dd9c74c20858a44b404c6f1f742ba5, type: 3}

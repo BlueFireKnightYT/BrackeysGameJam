@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40493af9373a98478c64d2631642a77, type: 3}
+  m_Name: Sacrifice Circle Fire Upgrade
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeStructure
+  structureName: Fire Upgrade
+  structurePrefab: {fileID: 5891024080229450204, guid: ebf82ef5abf038842b92714e758c2527, type: 3}
+  structureID: 1
+  isUpgrade: 1
+  basePrice: 10
+  realPrice: 10
+  unlockAmount: 10
+  upgradeImage: {fileID: -2928212581127888386, guid: c24fd68235162304d9f74cd4cf960388, type: 3}

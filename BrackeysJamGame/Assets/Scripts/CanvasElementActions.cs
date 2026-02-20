@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -109,78 +110,6 @@ public class CanvasElementActions : MonoBehaviour
         buildMode.enabled = false;
         canDragPigs = true;
     }
-
-    public void PurchaseSacrificeCircle()
-    {
-        int price = sacrificeCirclePrefab.GetComponent<ObjectDragger>().buyingPrice;
-        if (CurrencyHandler.baconAmount >= price)
-        {
-            GameObject obj = Instantiate(sacrificeCirclePrefab, spawnPos, Quaternion.identity);
-            CurrencyHandler.baconAmount -= price;
-            obj.GetComponent<ObjectDragger>().beenBought = true;
-            canActivateMenu = false;
-            DisableMenu();
-        }
-    }
-
-    public void PurchaseCandleUprade()
-    {
-        int price = candlesUpgradePrefab.GetComponent<ObjectDragger>().buyingPrice;
-        if (CurrencyHandler.baconAmount >= price)
-        {
-            GameObject obj = Instantiate(candlesUpgradePrefab, spawnPos, Quaternion.identity);
-            CurrencyHandler.baconAmount -= price;
-            obj.GetComponent<ObjectDragger>().beenBought = true;
-            canActivateMenu = false;
-            DisableMenu();
-        }
-    }
-
-    public void PurchaseFireUprade()
-    {
-        int price = fireUpgradePrefab.GetComponent<ObjectDragger>().buyingPrice;
-        if (CurrencyHandler.baconAmount >= price)
-        {
-            GameObject obj = Instantiate(fireUpgradePrefab, spawnPos, Quaternion.identity);
-            CurrencyHandler.baconAmount -= price;
-            obj.GetComponent<ObjectDragger>().beenBought = true;
-            canActivateMenu = false;
-            DisableMenu();
-        }
-    }
-
-    public void PurchaseCarrotDummy()
-    {
-        int price = carrotDummyPrefab.GetComponent<ObjectDragger>().buyingPrice;
-        if (CurrencyHandler.baconAmount >= price)
-        {
-            GameObject obj = Instantiate(carrotDummyPrefab, spawnPos, Quaternion.identity);
-            CurrencyHandler.baconAmount -= price;
-            obj.GetComponent<ObjectDragger>().beenBought = true;
-            canActivateMenu = false;
-            DisableMenu();
-        }
-    }
-
-    public void PurchasePigRainer()
-    {
-        if(CurrencyHandler.pigsSacrificed >= 50)
-        {
-            int price = pigRainerPrefab.GetComponent<ObjectDragger>().buyingPrice;
-            if(CurrencyHandler.baconAmount >= price)
-            {
-                GameObject obj = Instantiate(pigRainerPrefab, spawnPos, Quaternion.identity);
-                CurrencyHandler.baconAmount -= price;
-                CurrencyHandler.pigsSacrificed -= 50;
-                obj.GetComponent<ObjectDragger>().beenBought = true;
-                canActivateMenu = false;
-                DisableMenu();
-            }
-        }
-    }
-
-
-
     public void EnableDestroying()
     {
         if (buildMode.isMoving == false)
@@ -293,6 +222,20 @@ public class CanvasElementActions : MonoBehaviour
                 go.GetComponent<SpriteRenderer>().color = Color.white;
                 objTransform.localScale = new Vector2(objTransform.localScale.x / 1.2f, objTransform.localScale.y / 1.2f);
             }
+        }
+    }
+
+    public void PurchaseObject(UpgradeStructureHolder script)
+    {
+        UpgradeStructure obj = script.structure;
+        if (CurrencyHandler.baconAmount >= obj.realPrice)
+        {
+            GameObject structure = Instantiate(obj.structurePrefab, spawnPos, Quaternion.identity);
+            CurrencyHandler.baconAmount -= obj.realPrice;
+            structure.GetComponent<ObjectDragger>().beenBought = true;
+            script.UpdateText();
+            canActivateMenu = false;
+            DisableMenu();
         }
     }
 }
