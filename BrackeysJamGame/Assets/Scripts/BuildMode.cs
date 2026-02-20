@@ -22,7 +22,10 @@ public class BuildMode : MonoBehaviour
                     hit.gameObject.GetComponent<ObjectDragger>().cDummy.DeactivateCarrotDummy();
                 }
                 actionsScript.DeHighlightObjects();
+                CurrencyHandler.baconAmount -= 5;
                 isMoving = false;
+                if (hit.gameObject.GetComponent<CircleCollider2D>() != null) hit.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                if (hit.gameObject.GetComponent<BoxCollider2D>() != null) hit.gameObject.GetComponent<BoxCollider2D>().enabled = true;
             }
         }
         if(isDestroying && Input.GetMouseButtonDown(0))

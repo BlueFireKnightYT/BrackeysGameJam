@@ -28,9 +28,9 @@ public class PigletCollision : MonoBehaviour
                     if(pMove.isBiggaPigga) pMove.piggyAnimator.speed = 0f;
                     pMove.enabled = false;
                     transform.position = collision.gameObject.transform.position;
-                    Destroy(gameObject, 1f);
+                    Destroy(gameObject, collision.gameObject.GetComponent<CountHandler>().sacrificeTimer);
                     collision.GetComponent<CountHandler>().isOccupied = true;
-                    Invoke("UndoOccupy", 0.99f);
+                    Invoke("UndoOccupy", collision.gameObject.GetComponent<CountHandler>().sacrificeTimer - 0.01f);
                     isSacrificed = true;
                 }
             }
@@ -48,7 +48,7 @@ public class PigletCollision : MonoBehaviour
     private void UndoOccupy()
     {
         sacrificeCircle.GetComponent<CountHandler>().isOccupied = false;
-        CurrencyHandler.baconAmount += baconObtained;
+        CurrencyHandler.baconAmount += baconObtained * sacrificeCircle.GetComponent<CountHandler>().baconMultiplier;
         spawnScript.currentPigs--;
     }
 }

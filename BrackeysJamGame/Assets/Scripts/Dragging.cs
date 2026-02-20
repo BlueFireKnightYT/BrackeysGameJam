@@ -23,7 +23,7 @@ public class Dragging : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!pigColl.isSacrificed)
+        if (!pigColl.isSacrificed && CanvasElementActions.canDragPigs)
         {
             isDragging = true;
             boxColl.enabled = false;

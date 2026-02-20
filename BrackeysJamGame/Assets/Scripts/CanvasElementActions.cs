@@ -11,7 +11,11 @@ public class CanvasElementActions : MonoBehaviour
     public RawImage buildPanelImage;
     public GameObject sacrificeCirclePrefab;
     public GameObject carrotDummyPrefab;
+    public GameObject candlesUpgradePrefab;
+    public GameObject fireUpgradePrefab;
     public LayerMask objectLayer;
+    public static bool canDragPigs;
+    public static bool canActivateMenu;
 
     public RectTransform upgradeMenuRect;
     public RectTransform destroyMenuRect;
@@ -39,6 +43,8 @@ public class CanvasElementActions : MonoBehaviour
         audioScript = sfxManager.GetComponent<AudioScript>();
         source = sfxManager.GetComponent<AudioSource>();
         menuOpen = false;
+        canDragPigs = true;
+        canActivateMenu = true;
     }
 
     private void Update()
@@ -65,10 +71,13 @@ public class CanvasElementActions : MonoBehaviour
 
     public void OpenMenu()
     {
-        audioScript.PlayButtonClick();
-        audioScript.PlayMenuSwoosh();
-        menuOpen = true;
-        upgradeButton.SetActive(false);
+        if (canActivateMenu)
+        {
+            audioScript.PlayButtonClick();
+            audioScript.PlayMenuSwoosh();
+            menuOpen = true;
+            upgradeButton.SetActive(false);
+        }
     }
 
     public void DisableMenu()
@@ -86,6 +95,7 @@ public class CanvasElementActions : MonoBehaviour
         audioScript.PlayButtonClick();
         audioScript.PlayMenuSwoosh();
         buildMode.enabled = true;
+        canDragPigs = false;
     }
 
     public void CloseDestroyMenu()
@@ -94,8 +104,9 @@ public class CanvasElementActions : MonoBehaviour
         destroyMenuOpen = false;
         audioScript.PlayButtonClick();
         audioScript.PlayMenuSwoosh();
+        if (buildMode.isMoving || buildMode.isDestroying) DeHighlightObjects();
         buildMode.enabled = false;
-
+        canDragPigs = true;
     }
 
     public void PurchaseSacrificeCircle()
@@ -106,6 +117,33 @@ public class CanvasElementActions : MonoBehaviour
             GameObject obj = Instantiate(sacrificeCirclePrefab, spawnPos, Quaternion.identity);
             CurrencyHandler.baconAmount -= price;
             obj.GetComponent<ObjectDragger>().beenBought = true;
+            canActivateMenu = false;
+            DisableMenu();
+        }
+    }
+
+    public void PurchaseCandleUprade()
+    {
+        int price = candlesUpgradePrefab.GetComponent<ObjectDragger>().buyingPrice;
+        if (CurrencyHandler.baconAmount >= price)
+        {
+            GameObject obj = Instantiate(candlesUpgradePrefab, spawnPos, Quaternion.identity);
+            CurrencyHandler.baconAmount -= price;
+            obj.GetComponent<ObjectDragger>().beenBought = true;
+            canActivateMenu = false;
+            DisableMenu();
+        }
+    }
+
+    public void PurchaseFireUprade()
+    {
+        int price = fireUpgradePrefab.GetComponent<ObjectDragger>().buyingPrice;
+        if (CurrencyHandler.baconAmount >= price)
+        {
+            GameObject obj = Instantiate(fireUpgradePrefab, spawnPos, Quaternion.identity);
+            CurrencyHandler.baconAmount -= price;
+            obj.GetComponent<ObjectDragger>().beenBought = true;
+            canActivateMenu = false;
             DisableMenu();
         }
     }
@@ -118,6 +156,7 @@ public class CanvasElementActions : MonoBehaviour
             GameObject obj = Instantiate(carrotDummyPrefab, spawnPos, Quaternion.identity);
             CurrencyHandler.baconAmount -= price;
             obj.GetComponent<ObjectDragger>().beenBought = true;
+            canActivateMenu = false;
             DisableMenu();
         }
     }
@@ -162,9 +201,12 @@ public class CanvasElementActions : MonoBehaviour
             }
             else
             {
-                buildMode.isMoving = true;
-                HighlightMoveObjects();
-                LowerAlpha();
+                if(CurrencyHandler.baconAmount >= 5)
+                {
+                    buildMode.isMoving = true;
+                    HighlightMoveObjects();
+                    LowerAlpha();
+                }
             }
         }
         else
