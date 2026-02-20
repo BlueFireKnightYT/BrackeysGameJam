@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3057069655956551408}
   - component: {fileID: 1340715307324616606}
   - component: {fileID: 4289577652542048339}
+  - component: {fileID: -7393209543167842604}
   m_Layer: 3
   m_Name: Pig Rainer
   m_TagString: carrot
@@ -195,3 +196,17 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.8125
+--- !u!114 &-7393209543167842604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3423228767560781299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df1f24dbd5e1d2468cdc63ea6dd9749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  spawnScript: {fileID: 0}
+  cooldownTimer: 30
