@@ -11,13 +11,21 @@ public class SpawnPig : MonoBehaviour
 
 
     public float cooldown = 10f;
+    public float baseCooldown;
     public int rarePigChance;
 
     public int maxPigs = 5;
     public int currentPigs = 0;
+    public int basePigs;
 
     bool isSpawning;
 
+
+    private void Start()
+    {
+        baseCooldown = cooldown;
+        basePigs = maxPigs;
+    }
     private void Update()
     {
         if (!isSpawning && currentPigs < maxPigs)

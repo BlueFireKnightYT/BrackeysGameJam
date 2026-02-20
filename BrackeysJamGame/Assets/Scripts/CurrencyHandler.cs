@@ -6,6 +6,7 @@ public class CurrencyHandler : MonoBehaviour
     public static int baconAmount;
     public TextMeshProUGUI baconText;
     public static int pigsSacrificed;
+    public TextMeshProUGUI sacrificedText;
 
     private void Update()
     {
@@ -21,5 +22,7 @@ public class CurrencyHandler : MonoBehaviour
             float baconAmountM = baconAmount / 1000000f;
             baconText.text = baconAmountM.ToString("F2") + "M";
         }
+
+        sacrificedText.text = pigsSacrificed.ToString();
     }
 }
