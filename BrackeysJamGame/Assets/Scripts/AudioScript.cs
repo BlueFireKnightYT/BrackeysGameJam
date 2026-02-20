@@ -3,9 +3,12 @@ using UnityEngine;
 
 public class AudioScript : MonoBehaviour
 {
+    [Header("Sources")]
     public AudioSource source;
     public AudioSource sourceVariablePitch;
+    public AudioSource musicSource;
 
+    [Header("Clips")]
     public AudioClip Song;
     public AudioClip BigPigCrash;
     public AudioClip ButtonClick;
@@ -68,7 +71,7 @@ public class AudioScript : MonoBehaviour
     {
         while (true)
         { 
-            source.PlayOneShot(Song);
+            musicSource.PlayOneShot(Song);
             yield return new WaitForSeconds(Song.length);
         }
     }
