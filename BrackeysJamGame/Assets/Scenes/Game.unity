@@ -3445,6 +3445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1aaef01c43acf4bb3d243672fd2d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  shakeTime: 0.4
+  shakeAmount: 1
 --- !u!1 &1381220951
 GameObject:
   m_ObjectHideFlags: 0
@@ -4719,6 +4721,7 @@ MonoBehaviour:
   MenuSwoosh: {fileID: 8300000, guid: 5b9ea0a7fd5386b4a97b8ad0660f0fa8, type: 3}
   Thud: {fileID: 8300000, guid: 038de9e043852544fbeb05d83d3e77bf, type: 3}
   TinyPigCrash: {fileID: 8300000, guid: d638abfaab494b744a9e3c2fe403f9b6, type: 3}
+  UpgradeSFX: {fileID: 8300000, guid: b2e62600137e90745bf9e1429921d59c, type: 3}
 --- !u!82 &2015291556
 AudioSource:
   m_ObjectHideFlags: 0

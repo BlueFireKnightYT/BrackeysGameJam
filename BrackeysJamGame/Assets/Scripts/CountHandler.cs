@@ -50,9 +50,9 @@ public class CountHandler : MonoBehaviour
     public void UpgradeSacrificeCircle()
     {
         screenShake.shakeTime = 1.4f;
-        screenShake.shakeAmount = .3f;
+        screenShake.shakeAmount = .1f;
 
-        screenShake.shake();
+        screenShake.StartCoroutine(screenShake.shake());
 
         audioScript.PlayUpgradeSFX();
 
