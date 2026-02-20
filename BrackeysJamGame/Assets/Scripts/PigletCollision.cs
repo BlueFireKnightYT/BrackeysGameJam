@@ -43,7 +43,10 @@ public class PigletCollision : MonoBehaviour
     {
         if (!coll.IsTouchingLayers())
         {
-            sacrificeCircle = null;
+            if (!isSacrificed)
+            {
+                sacrificeCircle = null;
+            }  
         }
     }
 
