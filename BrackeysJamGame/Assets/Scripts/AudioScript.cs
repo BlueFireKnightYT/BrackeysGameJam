@@ -10,6 +10,7 @@ public class AudioScript : MonoBehaviour
     public AudioClip MenuSwoosh;
     public AudioClip Thud;
     public AudioClip TinyPigCrash;
+    public AudioClip UpgradeSFX;
 
     public void PlayBigPigCrash()
     {
@@ -34,6 +35,10 @@ public class AudioScript : MonoBehaviour
     public void PlayBuildThud()
     {
         source.PlayOneShot(Thud);
+    }
+    public void PlayUpgradeSFX()
+    {
+        source.PlayOneShot(UpgradeSFX);
     }
 
     IEnumerator waitForEnd(AudioClip clip)
