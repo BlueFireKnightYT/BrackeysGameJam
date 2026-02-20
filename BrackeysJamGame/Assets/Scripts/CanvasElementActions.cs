@@ -5,36 +5,42 @@ using UnityEngine.UI;
 
 public class CanvasElementActions : MonoBehaviour
 {
-    public GameObject upgradeMenu;
+    [Header("Buttons")]
     public GameObject upgradeButton;
-    public BuildMode buildMode;
-    public GameObject buildPanel;
-    public RawImage buildPanelImage;
+    public GameObject settingsButton;
+
+    [Header("Prefabs")]
     public GameObject sacrificeCirclePrefab;
     public GameObject carrotDummyPrefab;
     public GameObject candlesUpgradePrefab;
     public GameObject fireUpgradePrefab;
     public GameObject pigRainerPrefab;
-    public LayerMask objectLayer;
-    public static bool canDragPigs;
-    public static bool canActivateMenu;
 
-    public RectTransform upgradeMenuRect;
-    public RectTransform destroyMenuRect;
-
+    [Header("Vectors")]
     Vector2 destination = new Vector2(0, 0);
     Vector2 startPos = new Vector2(-650, 0);
     Vector2 startPos2 = new Vector2(0, 1080);
     Vector2 cursorWorldPos;
     Vector2 spawnPos;
+    public RectTransform upgradeMenuRect;
+    public RectTransform destroyMenuRect;
+
+    [Header("Menu's")]
+    public GameObject upgradeMenu;
+    public BuildMode buildMode;
+    public GameObject buildPanel;
+    public RawImage buildPanelImage;
+    [SerializeField] float menuLerpSpeed = 8f;
+    bool menuOpen = false;
+    bool destroyMenuOpen = false;
+
+    [Header("Rest")]
+    public LayerMask objectLayer;
+    public static bool canDragPigs;
+    public static bool canActivateMenu;
 
     AudioScript audioScript;
     GameObject sfxManager;
-    AudioSource source;
-
-    bool menuOpen = false;
-    bool destroyMenuOpen = false;
-    [SerializeField] float menuLerpSpeed = 8f;
 
     private void Start()
     {
@@ -43,7 +49,6 @@ public class CanvasElementActions : MonoBehaviour
         upgradeMenuRect.anchoredPosition = startPos;
         sfxManager = GameObject.FindGameObjectWithTag("sfxManager");
         audioScript = sfxManager.GetComponent<AudioScript>();
-        source = sfxManager.GetComponent<AudioSource>();
         menuOpen = false;
         canDragPigs = true;
         canActivateMenu = true;
