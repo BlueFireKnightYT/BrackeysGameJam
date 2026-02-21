@@ -5367,6 +5367,137 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &60365273152019762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6560651262662159656, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+  m_PrefabInstance: {fileID: 5384237682872621777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5384237682872621777
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 776554424190781947, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013475232870379849, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3163061529054827263, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_fontSize
+      value: 30.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3163061529054827263, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 32f1012f03d90124a99232bc34589940, type: 2}
+    - target: {fileID: 3163061529054827263, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6037205455569530310, guid: 32f1012f03d90124a99232bc34589940, type: 2}
+    - target: {fileID: 3163061529054827263, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276019485150189472, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.2291985
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276019485150189472, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.6396651
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276019485150189472, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276019485150189472, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276019485150189472, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276019485150189472, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276019485150189472, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276019485150189472, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276019485150189472, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276019485150189472, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654822383959436414, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6477226675902051428, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.029638318
+      objectReference: {fileID: 0}
+    - target: {fileID: 6477226675902051428, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.029638318
+      objectReference: {fileID: 0}
+    - target: {fileID: 6477226675902051428, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.029638318
+      objectReference: {fileID: 0}
+    - target: {fileID: 6477226675902051428, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -518.8678
+      objectReference: {fileID: 0}
+    - target: {fileID: 6477226675902051428, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -296.563
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560651262662159656, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      propertyPath: m_Name
+      value: Telescope
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5752635565158035409, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6560651262662159656, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5890674631729284033}
+  m_SourcePrefab: {fileID: 100100000, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+--- !u!114 &5890674631729284033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60365273152019762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72676b497e1ef774fbe64328b1868e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  starPig: {fileID: 0}
+  wishPanel: {fileID: 0}
+  waitText: {fileID: 0}
+  cooldown: 0
+  isWaiting: 0
 --- !u!1001 &6099264940550410820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5503,3 +5634,4 @@ SceneRoots:
   - {fileID: 966992533}
   - {fileID: 2015291557}
   - {fileID: 1468405577}
+  - {fileID: 5384237682872621777}

@@ -25,14 +25,15 @@ public class Pigrainer : MonoBehaviour
 
     public void StartPigRain()
     {
-        if (CurrencyHandler.pigsSacrificed >= 50 && !onCooldown)
+        if (!onCooldown)
         {
             print("clicked");
             anim.SetBool("isPressed", true);
             onCooldown = true;
-            spawnScript.maxPigs = 50;
-            spawnScript.cooldown = 0.1f;
+            spawnScript.maxPigs += 50;
+            spawnScript.cooldown *= 0.1f;
             Invoke("UndoRain", 5);
+            canvas.enabled = false;
         }
     }
 
@@ -44,8 +45,8 @@ public class Pigrainer : MonoBehaviour
     private void UndoRain()
     {
         Invoke("ResetCooldown", cooldownTimer);
-        spawnScript.maxPigs = spawnScript.basePigs;
-        spawnScript.cooldown = spawnScript.baseCooldown;
+        spawnScript.maxPigs -= 50;
+        spawnScript.cooldown /= 0.1f;
     }
 
     private void ResetCooldown()
