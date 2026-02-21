@@ -102,7 +102,7 @@ public class PigletMove : MonoBehaviour
         yield return new WaitForSeconds(pauseTime);
         if (!carrotInRange)
         {
-            nextPos = new Vector3(Random.Range(-9f, 9f), Random.Range(-5f, 5f), transform.position.z);
+            nextPos = new Vector3(Random.Range(-8.5f, 8.5f), Random.Range(-4.5f, 4.5f), transform.position.z);
         }
         else
         {
