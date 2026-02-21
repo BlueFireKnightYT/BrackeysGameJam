@@ -1,9 +1,6 @@
 using TMPro;
 using UnityEngine;
-
-using UnityEngine;
 using UnityEngine.EventSystems;
-using TMPro;
 
 public class DescriptionChanger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -20,7 +17,8 @@ public class DescriptionChanger : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        text.text = structure.structureDescription;
+        if(holder.unlocked)
+            text.text = structure.structureDescription;
     }
 
     public void OnPointerExit(PointerEventData eventData)
