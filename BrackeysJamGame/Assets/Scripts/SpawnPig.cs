@@ -16,6 +16,7 @@ public class SpawnPig : MonoBehaviour
 
     public int maxPigs = 5;
     public int currentPigs = 0;
+    public GameObject[] currentPigsList;
     public int basePigs;
 
     bool isSpawning;
@@ -32,6 +33,9 @@ public class SpawnPig : MonoBehaviour
         {
             StartCoroutine(SpawnPigs());
         }
+
+        currentPigsList = GameObject.FindGameObjectsWithTag("piglet");
+        currentPigs = currentPigsList.Length;
     }
     IEnumerator SpawnPigs()
     {
@@ -54,7 +58,7 @@ public class SpawnPig : MonoBehaviour
             {
                 shadowObj.transform.localScale = new Vector3(2, 2, 2);
             }
-            currentPigs++;
+            //currentPigs++;
             PigletMove move = spawnedPig.GetComponent<PigletMove>();
             move.nextPos = nextPos;
         }
