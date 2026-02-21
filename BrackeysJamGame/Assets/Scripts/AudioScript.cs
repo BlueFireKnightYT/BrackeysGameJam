@@ -22,7 +22,9 @@ public class AudioScript : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(PlaySongRepeating());
+        musicSource.clip = Song;
+        musicSource.loop = true;
+        musicSource.Play();
     }
 
     public void PlayBigPigCrash()
@@ -86,13 +88,5 @@ public class AudioScript : MonoBehaviour
     {
         yield return new WaitForSeconds(clip.length);
         sourceVariablePitch.pitch = 1;
-    }
-    IEnumerator PlaySongRepeating()
-    {
-        while (true)
-        { 
-            musicSource.PlayOneShot(Song);
-            yield return new WaitForSeconds(Song.length);
-        }
     }
 }

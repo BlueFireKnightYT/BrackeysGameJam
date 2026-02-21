@@ -528,7 +528,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4886849614951629682, guid: c9679004824d2524ab79e54ed4c8bef2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -678,7 +678,6 @@ MonoBehaviour:
   starPig: {fileID: 4820949594136659875, guid: 02ae1d0bdccc9fe478fa6bfb550c8f52, type: 3}
   wishPanel: {fileID: 6514275735227764329}
   waitPanel: {fileID: 776554424190781947}
-  wishChoicePanel: {fileID: 0}
   waitText: {fileID: 3163061529054827263}
   cooldown: 5
   isWaiting: 0
