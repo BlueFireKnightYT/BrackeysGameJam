@@ -11,6 +11,7 @@ TagManager:
   - sfxManager
   - carrot
   - canvas
+  - wishchoice
   layers:
   - Default
   - TransparentFX

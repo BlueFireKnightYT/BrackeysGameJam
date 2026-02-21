@@ -17,6 +17,6 @@ MonoBehaviour:
   structureID: 1
   isUpgrade: 1
   basePrice: 10
-  realPrice: 10
-  unlockAmount: 10
+  realPrice: 13
+  unlockAmount: 20
   upgradeImage: {fileID: -2928212581127888386, guid: c24fd68235162304d9f74cd4cf960388, type: 3}

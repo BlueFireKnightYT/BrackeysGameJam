@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Telescope
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeStructure
   structureName: Telescope
-  structurePrefab: {fileID: 0}
-  structureID: 0
+  structurePrefab: {fileID: 6560651262662159656, guid: f6940abf6aaaa764a841d23df00a965b, type: 3}
+  structureID: 5
   isUpgrade: 0
-  basePrice: 0
-  realPrice: 0
-  unlockAmount: 0
-  upgradeImage: {fileID: 0}
+  basePrice: 50
+  realPrice: 74
+  unlockAmount: 100
+  upgradeImage: {fileID: 4886849614951629682, guid: c9679004824d2524ab79e54ed4c8bef2, type: 3}
