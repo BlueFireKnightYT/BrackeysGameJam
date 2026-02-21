@@ -39,12 +39,14 @@ public class CountHandler : MonoBehaviour
         {
             if(circeColl != null)
             {
-                if (!circeColl.IsTouchingLayers())
-                {
-                    isOccupied = false;
-                }
+                Invoke("UnOccupy", 3f);
             }
         }
+    }
+
+    private void UnOccupy()
+    {
+        isOccupied = false;
     }
 
     public void UpgradeSacrificeCircle()

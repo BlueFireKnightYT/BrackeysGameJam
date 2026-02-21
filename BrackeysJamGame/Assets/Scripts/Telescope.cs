@@ -45,11 +45,11 @@ public class Telescope : MonoBehaviour
 
     public void LookForStars()
     {
-        float chance = Random.Range(0, 5);
+        float chance = Random.Range(0, 2);
         hasClicked = true;
         isWaiting = true;
         wishPanel.SetActive(false);
-        if (chance == 3)
+        if (chance == 1)
         {
             sfx.PlayOneShot(clip);
             GameObject obj = Instantiate(starPig, new Vector2(-10, 6), Quaternion.identity);
