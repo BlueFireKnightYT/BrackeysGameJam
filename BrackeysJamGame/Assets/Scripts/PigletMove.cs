@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.VFX;
 
 public class PigletMove : MonoBehaviour
@@ -115,12 +116,12 @@ public class PigletMove : MonoBehaviour
         yield return new WaitForSeconds(3);
         pigCollider2D.enabled = true;
         moveSpeed = movingSpeed;
-        if (isBiggaPigga)
+        if (isBiggaPigga && SceneManager.GetActiveScene().name == "Game")
         { 
             screenShake.StartCoroutine(screenShake.shake());
             audioScript.PlayBigPigCrash();
         }
-        else
+        else if (SceneManager.GetActiveScene().name == "Game")
         {
             audioScript.PlayTinyPigCrash();
         }

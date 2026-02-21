@@ -11,6 +11,7 @@ public class PigletCollision : MonoBehaviour
     public GameObject fireAnimation;
     void Start()
     {
+
         pMove = GetComponent<PigletMove>();
         coll = GetComponent<BoxCollider2D>();
         spawnScript = GameObject.FindGameObjectWithTag("spawner").GetComponent<SpawnPig>();

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CanvasElementActions : MonoBehaviour
@@ -32,6 +33,7 @@ public class CanvasElementActions : MonoBehaviour
 
     public BuildMode buildMode;
     public GameObject buildPanel;
+    public GameObject QuitMenu;
     public RawImage buildPanelImage;
 
     public RectTransform upgradeMenuRect;
@@ -51,50 +53,56 @@ public class CanvasElementActions : MonoBehaviour
     public static bool canDragPigs;
     public static bool canActivateMenu;
 
-    AudioScript audioScript;
-    GameObject sfxManager;
+    public AudioScript audioScript;
+    public GameObject sfxManager;
 
 
 
     private void Start()
     {
-        buildPanelImage = buildPanel.GetComponent<RawImage>();
-        upgradeMenuRect = upgradeMenu.GetComponent<RectTransform>();
-        upgradeMenuRect.anchoredPosition = startPos;
-        sfxManager = GameObject.FindGameObjectWithTag("sfxManager");
-        audioScript = sfxManager.GetComponent<AudioScript>();
-        menuOpen = false;
-        canDragPigs = true;
-        canActivateMenu = true;
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
+            buildPanelImage = buildPanel.GetComponent<RawImage>();
+            upgradeMenuRect = upgradeMenu.GetComponent<RectTransform>();
+            upgradeMenuRect.anchoredPosition = startPos;
+            sfxManager = GameObject.FindGameObjectWithTag("sfxManager");
+            audioScript = sfxManager.GetComponent<AudioScript>();
+            menuOpen = false;
+            canDragPigs = true;
+            canActivateMenu = true;
+        }
     }
 
     private void Update()
     {
-        cursorWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        spawnPos = cursorWorldPos - new Vector2(0, 1f);
+        if(SceneManager.GetActiveScene().name == "Game")
+        { 
+            cursorWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            spawnPos = cursorWorldPos - new Vector2(0, 1f);
 
-        Vector2 target = menuOpen ? destination : startPos;
-        upgradeMenuRect.anchoredPosition = Vector2.Lerp(upgradeMenuRect.anchoredPosition, target, Time.deltaTime * menuLerpSpeed);
+            Vector2 target = menuOpen ? destination : startPos;
+            upgradeMenuRect.anchoredPosition = Vector2.Lerp(upgradeMenuRect.anchoredPosition, target, Time.deltaTime * menuLerpSpeed);
 
-        if (Vector2.Distance(upgradeMenuRect.anchoredPosition, target) < 0.1f)
-        {
-            upgradeMenuRect.anchoredPosition = target;
-        }
-        //destroy menu
-        Vector2 target2 = destroyMenuOpen ? destination : startPos2;
-        destroyMenuRect.anchoredPosition = Vector2.Lerp(destroyMenuRect.anchoredPosition, target2, Time.deltaTime * menuLerpSpeed);
+            if (Vector2.Distance(upgradeMenuRect.anchoredPosition, target) < 0.1f)
+            {
+                upgradeMenuRect.anchoredPosition = target;
+            }
+            //destroy menu
+            Vector2 target2 = destroyMenuOpen ? destination : startPos2;
+            destroyMenuRect.anchoredPosition = Vector2.Lerp(destroyMenuRect.anchoredPosition, target2, Time.deltaTime * menuLerpSpeed);
 
-        if (Vector2.Distance(destroyMenuRect.anchoredPosition, target2) < 0.1f)
-        {
-            destroyMenuRect.anchoredPosition = target2;
-        }
-        //settings menu
-        Vector2 target3 = settingsMenuOpen ? destination : startPos2;
-        settingsMenuRect.anchoredPosition = Vector2.Lerp(settingsMenuRect.anchoredPosition, target3, Time.deltaTime * menuLerpSpeed);
+            if (Vector2.Distance(destroyMenuRect.anchoredPosition, target2) < 0.1f)
+            {
+                destroyMenuRect.anchoredPosition = target2;
+            }
+            //settings menu
+            Vector2 target3 = settingsMenuOpen ? destination : startPos2;
+            settingsMenuRect.anchoredPosition = Vector2.Lerp(settingsMenuRect.anchoredPosition, target3, Time.deltaTime * menuLerpSpeed);
 
-        if (Vector2.Distance(settingsMenuRect.anchoredPosition, target3) < 0.1f)
-        {
-            settingsMenuRect.anchoredPosition = target3;
+            if (Vector2.Distance(settingsMenuRect.anchoredPosition, target3) < 0.1f)
+            {
+                settingsMenuRect.anchoredPosition = target3;
+            }
         }
     }
 
@@ -150,6 +158,9 @@ public class CanvasElementActions : MonoBehaviour
         destroyMenuOpen = false;
         menuOpen = false;
 
+        audioScript.PlayButtonClick();
+        audioScript.PlayMenuSwoosh();
+
         settingsButton.SetActive(false);
         upgradeButton.SetActive(false);
     }
@@ -159,6 +170,9 @@ public class CanvasElementActions : MonoBehaviour
         settingsMenuOpen = false;
         settingsButton.SetActive(true);
         upgradeButton.SetActive(true);
+
+        audioScript.PlayButtonClick();
+        audioScript.PlayMenuSwoosh();
 
         if (buildMode.isMoving || buildMode.isDestroying) DeHighlightObjects();
         buildMode.enabled = false;
@@ -297,5 +311,28 @@ public class CanvasElementActions : MonoBehaviour
             canActivateMenu = false;
             DisableMenu();
         }
+    }
+
+    public void ConfirmQuitOpener()
+    {
+        QuitMenu.SetActive(true);
+        audioScript.PlayButtonClick();
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Game");
+        audioScript.PlayButtonClick();
+    }
+    public void QuitGame()
+    {
+        audioScript.PlayButtonClick();
+        Application.Quit();
+    }
+
+    public void CancelQuit()
+    {
+        audioScript.PlayButtonClick();
+        QuitMenu.SetActive(false);
     }
 }

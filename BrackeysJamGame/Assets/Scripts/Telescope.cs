@@ -2,6 +2,7 @@ using System.Runtime.ExceptionServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class Telescope : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class Telescope : MonoBehaviour
         sfx = GetComponent<AudioSource>();
         wishChoicePanel = GameObject.FindGameObjectWithTag("wishchoice");
     }
+
+   
     private void OnMouseDown()
     {
         if (!isWaiting)
@@ -78,6 +81,8 @@ public class Telescope : MonoBehaviour
         if (isWaiting)
         {
             baseCooldown -= Time.deltaTime;
+            waitPanel.SetActive(true);
+            waitText.enabled = true;
         }
         if(baseCooldown <= 0)
         {
