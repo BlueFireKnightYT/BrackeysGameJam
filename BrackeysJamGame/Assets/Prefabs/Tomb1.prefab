@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5802717405071917702}
   - component: {fileID: 7333096965919835068}
+  - component: {fileID: 7634417369160762354}
   m_Layer: 0
   m_Name: Tomb1
   m_TagString: Untagged
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4331590795279170418, guid: 8b76d7dc24e90c6419260a7020042115, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -90,4 +91,16 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
+--- !u!114 &7634417369160762354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916078322836599456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3287cc776486aab4090ecc0388a7f55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort

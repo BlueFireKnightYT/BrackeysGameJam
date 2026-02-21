@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6575378830075899522}
   - component: {fileID: 2277505670224852372}
   - component: {fileID: 7064771697795264695}
+  - component: {fileID: -4523196768263985485}
   m_Layer: 0
   m_Name: PigletStyle3
   m_TagString: piglet
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5949463784610910833, guid: 1193143e86d41a2489bc7ce84abcb0a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,7 +98,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &2682970908493304636
 Animator:
   serializedVersion: 7
@@ -346,3 +347,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-4523196768263985485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784025764614224975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3287cc776486aab4090ecc0388a7f55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort

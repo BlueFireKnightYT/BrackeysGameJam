@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4000020384245934456}
   - component: {fileID: 1908138287025788641}
   - component: {fileID: 8488167748560140230}
+  - component: {fileID: 6452392418342114585}
   m_Layer: 0
   m_Name: Bigga Pigga
   m_TagString: piglet
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6559541942117282274, guid: 80166c3548759824f8c6740308c37a7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,7 +98,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &1475287868312232858
 Animator:
   serializedVersion: 7
@@ -344,3 +345,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6452392418342114585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9126263082620842945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3287cc776486aab4090ecc0388a7f55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
