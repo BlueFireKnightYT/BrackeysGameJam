@@ -233,6 +233,7 @@ MonoBehaviour:
   baconObtained: 1
   isSacrificed: 0
   fireAnimation: {fileID: 7478053694990357197, guid: 418942282db8d034093cdfc72e735f75, type: 3}
+  onfire: {fileID: 8300000, guid: f7dd5bb09f613f24196340809da8aa0f, type: 3}
 --- !u!114 &3286987363089143247
 MonoBehaviour:
   m_ObjectHideFlags: 0

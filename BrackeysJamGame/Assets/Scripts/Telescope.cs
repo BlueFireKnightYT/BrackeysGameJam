@@ -9,7 +9,9 @@ public class Telescope : MonoBehaviour
     public GameObject starPig;
     public GameObject wishPanel;
     public GameObject waitPanel;
+    public GameObject noText;
     GameObject wishChoicePanel;
+    GameObject canvas;
     public TextMeshProUGUI waitText;
     public float cooldown;
     float baseCooldown;
@@ -22,7 +24,8 @@ public class Telescope : MonoBehaviour
     {
         baseCooldown = cooldown;
         sfx = GetComponent<AudioSource>();
-        wishChoicePanel = GameObject.FindGameObjectWithTag("wishchoice");
+        canvas = GameObject.FindGameObjectWithTag("canvas");
+        wishChoicePanel = canvas.transform.Find("Wishchoice Panel").gameObject;
     }
 
    
@@ -43,6 +46,7 @@ public class Telescope : MonoBehaviour
     public void LookForStars()
     {
         float chance = Random.Range(0, 5);
+        hasClicked = true;
         isWaiting = true;
         wishPanel.SetActive(false);
         if (chance == 3)
@@ -56,7 +60,8 @@ public class Telescope : MonoBehaviour
         }
         else
         {
-            print("no");
+            noText.SetActive(true);
+            Invoke("WaitPanelDissapear", 2f);
         }
     }
 
@@ -68,12 +73,14 @@ public class Telescope : MonoBehaviour
     private void WaitPanelDissapear()
     {
         waitPanel.SetActive (false);
+        noText.SetActive (false);
         hasClicked = false;
     }
 
     private void WishChoiceAppear()
     {
         wishChoicePanel.SetActive (true);
+        hasClicked = false;
     }
 
     private void Update()
@@ -81,8 +88,6 @@ public class Telescope : MonoBehaviour
         if (isWaiting)
         {
             baseCooldown -= Time.deltaTime;
-            waitPanel.SetActive(true);
-            waitText.enabled = true;
         }
         if(baseCooldown <= 0)
         {

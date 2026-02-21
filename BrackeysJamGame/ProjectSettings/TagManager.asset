@@ -12,6 +12,7 @@ TagManager:
   - carrot
   - canvas
   - wishchoice
+  - description
   layers:
   - Default
   - TransparentFX

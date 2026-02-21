@@ -17,6 +17,7 @@ MonoBehaviour:
   structureID: 2
   isUpgrade: 1
   basePrice: 10
-  realPrice: 13
+  realPrice: 10
   unlockAmount: 20
   upgradeImage: {fileID: 3422365127819499735, guid: fcb6be6f6dec8b54e874d380cfcb4e8d, type: 3}
+  structureDescription: Place on a circle for double bacon!

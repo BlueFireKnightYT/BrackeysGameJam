@@ -17,6 +17,7 @@ MonoBehaviour:
   structureID: 0
   isUpgrade: 0
   basePrice: 5
-  realPrice: 18
+  realPrice: 5
   unlockAmount: 0
   upgradeImage: {fileID: -2753919977987637206, guid: c5128e5cc9f1db94eb8be747c8a4d7a9, type: 3}
+  structureDescription: sacrifice the pigs!
