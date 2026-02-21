@@ -137,7 +137,7 @@ MonoBehaviour:
   nextPos: {x: -7, y: 4, z: 0}
   piggyAnimator: {fileID: 5782123896699819639}
   isBiggaPigga: 0
-  carrotSensingRange: 4
+  carrotSensingRange: 0
   carrotLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -234,6 +234,7 @@ MonoBehaviour:
   baconObtained: 5
   isSacrificed: 0
   fireAnimation: {fileID: 7478053694990357197, guid: 418942282db8d034093cdfc72e735f75, type: 3}
+  onfire: {fileID: 8300000, guid: f7dd5bb09f613f24196340809da8aa0f, type: 3}
 --- !u!114 &265296800798132319
 MonoBehaviour:
   m_ObjectHideFlags: 0

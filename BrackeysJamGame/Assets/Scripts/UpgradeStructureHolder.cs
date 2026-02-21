@@ -10,6 +10,7 @@ public class UpgradeStructureHolder : MonoBehaviour
     public TextMeshProUGUI priceText;
     public TextMeshProUGUI nameText;
     public bool unlocked;
+    public TextMeshProUGUI descriptionText;
 
     public void Awake()
     {
@@ -19,6 +20,7 @@ public class UpgradeStructureHolder : MonoBehaviour
         remainingSacrifices.enabled = true;
         priceText.enabled = false;
         nameText.enabled = false;
+        descriptionText = GameObject.FindGameObjectWithTag("description").GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
@@ -49,5 +51,14 @@ public class UpgradeStructureHolder : MonoBehaviour
         image.sprite = structure.upgradeImage;
         priceText.text = structure.realPrice.ToString();
         nameText.text = structure.structureName.ToString();
+    }
+
+    private void OnMouseEnter()
+    {
+        descriptionText.text = structure.structureDescription;
+    }
+    private void OnMouseExit()
+    {
+        descriptionText.text = null;
     }
 }

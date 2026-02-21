@@ -9,12 +9,15 @@ public class PigletCollision : MonoBehaviour
     public bool isSacrificed;
     private SpawnPig spawnScript;
     public GameObject fireAnimation;
+    AudioSource sfx;
+    public AudioClip onfire;
     void Start()
     {
 
         pMove = GetComponent<PigletMove>();
         coll = GetComponent<BoxCollider2D>();
         spawnScript = GameObject.FindGameObjectWithTag("spawner").GetComponent<SpawnPig>();
+        sfx = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,6 +36,7 @@ public class PigletCollision : MonoBehaviour
                     transform.position = collision.gameObject.transform.position;
                     Destroy(gameObject, collision.gameObject.GetComponent<CountHandler>().sacrificeTimer);
                     collision.GetComponent<CountHandler>().isOccupied = true;
+                    sfx.PlayOneShot(onfire);
                     Invoke("UndoOccupy", collision.gameObject.GetComponent<CountHandler>().sacrificeTimer - 0.01f);
                     isSacrificed = true;
                 }

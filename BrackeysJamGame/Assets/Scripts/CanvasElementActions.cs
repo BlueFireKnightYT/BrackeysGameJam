@@ -222,12 +222,9 @@ public class CanvasElementActions : MonoBehaviour
             }
             else
             {
-                if(CurrencyHandler.baconAmount >= 5)
-                {
                     buildMode.isMoving = true;
                     HighlightMoveObjects();
                     LowerAlpha();
-                }
             }
         }
         else

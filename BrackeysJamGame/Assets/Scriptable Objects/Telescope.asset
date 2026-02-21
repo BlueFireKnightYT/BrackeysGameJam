@@ -17,6 +17,7 @@ MonoBehaviour:
   structureID: 5
   isUpgrade: 0
   basePrice: 50
-  realPrice: 74
+  realPrice: 50
   unlockAmount: 100
   upgradeImage: {fileID: 4886849614951629682, guid: c9679004824d2524ab79e54ed4c8bef2, type: 3}
+  structureDescription: Look for the rare STARPIG!

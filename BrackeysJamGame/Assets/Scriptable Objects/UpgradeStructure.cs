@@ -11,4 +11,5 @@ public class UpgradeStructure : ScriptableObject
     public int realPrice;
     public int unlockAmount;
     public Sprite upgradeImage;
+    public string structureDescription;
 }
