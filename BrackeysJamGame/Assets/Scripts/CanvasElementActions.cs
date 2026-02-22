@@ -73,8 +73,8 @@ public class CanvasElementActions : MonoBehaviour
 
     private void Update()
     {
-        if(SceneManager.GetActiveScene().name == "Game")
-        { 
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
             cursorWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             spawnPos = cursorWorldPos - new Vector2(0, 1f);
 
@@ -209,7 +209,7 @@ public class CanvasElementActions : MonoBehaviour
 
     public void EnableMoving()
     {
-        
+
         if (buildMode.isDestroying == false)
         {
             if (buildMode.isMoving == true)
@@ -220,9 +220,9 @@ public class CanvasElementActions : MonoBehaviour
             }
             else
             {
-                    buildMode.isMoving = true;
-                    HighlightMoveObjects();
-                    LowerAlpha();
+                buildMode.isMoving = true;
+                HighlightMoveObjects();
+                LowerAlpha();
             }
         }
         else
@@ -258,7 +258,7 @@ public class CanvasElementActions : MonoBehaviour
                 if (buildMode.isDestroying == false)
                 {
                     objTransform.localScale = new Vector2(objTransform.localScale.x * 1.2f, objTransform.localScale.y * 1.2f);
-                }      
+                }
             }
         }
     }
@@ -272,10 +272,10 @@ public class CanvasElementActions : MonoBehaviour
             {
                 Transform objTransform = go.GetComponent<Transform>();
                 go.GetComponent<SpriteRenderer>().color = Color.red;
-                if(buildMode.isMoving == false)
+                if (buildMode.isMoving == false)
                 {
                     objTransform.localScale = new Vector2(objTransform.localScale.x * 1.2f, objTransform.localScale.y * 1.2f);
-                }       
+                }
             }
         }
     }
@@ -299,12 +299,40 @@ public class CanvasElementActions : MonoBehaviour
         UpgradeStructure obj = script.structure;
         if (CurrencyHandler.baconAmount >= obj.realPrice && script.unlocked)
         {
-            GameObject structure = Instantiate(obj.structurePrefab, spawnPos, Quaternion.identity);
-            CurrencyHandler.baconAmount -= obj.realPrice;
-            structure.GetComponent<ObjectDragger>().beenBought = true;
-            script.UpdateText();
-            canActivateMenu = false;
-            DisableMenu();
+            if (!obj.isUpgrade)
+            {
+                GameObject structure = Instantiate(obj.structurePrefab, spawnPos, Quaternion.identity);
+                CurrencyHandler.baconAmount -= obj.realPrice;
+                structure.GetComponent<ObjectDragger>().beenBought = true;
+                script.UpdateText();
+                canActivateMenu = false;
+                DisableMenu();
+            }
+            else
+            {
+                bool canBuy = false;
+                GameObject[] all = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+                foreach (GameObject go in all)
+                {
+                    if (go.GetComponent<CountHandler>() != null)
+                    {
+                        if (!go.GetComponent<CountHandler>().hasCandles && !go.GetComponent<CountHandler>().hasFire)
+                        {
+                            canBuy = true;
+                        }
+                    }
+                }
+
+                if (canBuy)
+                {
+                    GameObject structure = Instantiate(obj.structurePrefab, spawnPos, Quaternion.identity);
+                    CurrencyHandler.baconAmount -= obj.realPrice;
+                    structure.GetComponent<ObjectDragger>().beenBought = true;
+                    script.UpdateText();
+                    canActivateMenu = false;
+                    DisableMenu();
+                }
+            }
         }
     }
 
