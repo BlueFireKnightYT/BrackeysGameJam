@@ -1,8 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.VFX;
-
 public class PigletMove : MonoBehaviour
 {
     public Vector3 nextPos;

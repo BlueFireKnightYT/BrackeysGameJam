@@ -1,7 +1,4 @@
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.VFX;
 
 public class CountHandler : MonoBehaviour
 {

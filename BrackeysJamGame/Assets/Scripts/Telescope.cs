@@ -1,8 +1,5 @@
-using System.Runtime.ExceptionServices;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class Telescope : MonoBehaviour
 {
