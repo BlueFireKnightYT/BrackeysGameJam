@@ -10,6 +10,7 @@ public class CountHandler : MonoBehaviour
     public float fireTimer;
     public int baconMultiplier;
     public int candlesMultiplier;
+    bool calmDown;
     Animator anim;
     GameObject cam;
     ScreenShake screenShake;
@@ -34,9 +35,10 @@ public class CountHandler : MonoBehaviour
     {
         if (isOccupied)
         {
-            if(circeColl != null)
+            if(circeColl != null && !calmDown)
             {
                 Invoke("UnOccupy", 3f);
+                calmDown = true;
             }
         }
     }
@@ -44,6 +46,7 @@ public class CountHandler : MonoBehaviour
     private void UnOccupy()
     {
         isOccupied = false;
+        calmDown = false;
     }
 
     public void UpgradeSacrificeCircle()
