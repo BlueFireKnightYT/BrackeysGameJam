@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -251,6 +252,8 @@ public class CanvasElementActions : MonoBehaviour
         GameObject[] all = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         foreach (GameObject go in all)
         {
+            //SpriteRenderer spriteRenderer = go.GetComponent<SpriteRenderer>();
+            //bool hasSr = (spriteRenderer != null) ? true : false;
             if (((1 << go.layer) & objectLayer) != 0)
             {
                 Transform objTransform = go.GetComponent<Transform>();
@@ -268,6 +271,8 @@ public class CanvasElementActions : MonoBehaviour
         GameObject[] all = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         foreach (GameObject go in all)
         {
+            //SpriteRenderer spriteRenderer = go.GetComponent<SpriteRenderer>();
+            //bool hasSr = (spriteRenderer != null) ? true : false;
             if (((1 << go.layer) & objectLayer) != 0)
             {
                 Transform objTransform = go.GetComponent<Transform>();
@@ -285,6 +290,8 @@ public class CanvasElementActions : MonoBehaviour
         GameObject[] all = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         foreach (GameObject go in all)
         {
+            //SpriteRenderer spriteRenderer = go.GetComponent<SpriteRenderer>();
+            //bool hasSr = (spriteRenderer != null) ? true : false;
             if (((1 << go.layer) & objectLayer) != 0)
             {
                 Transform objTransform = go.GetComponent<Transform>();

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2941282763369971678}
   - component: {fileID: 556774846180252795}
   - component: {fileID: 7660593943851646082}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: -7393209543167842604}
   - component: {fileID: 1323776067715677655}
   - component: {fileID: 52380413087788476}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Pig Rainer
   m_TagString: object
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ BoxCollider2D:
   m_Offset: {x: -0.018940449, y: 0.018940806}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.7}
     oldSize: {x: 1.75, y: 1.1875}
     newSize: {x: 1.75, y: 1.1875}
     adaptiveTilingThreshold: 0.5
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 2981806612512146898}
   - component: {fileID: 7030691575642761419}
   - component: {fileID: 5101134626786988020}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 7062552536520675399}
   - component: {fileID: 2268136979844939898}
   - component: {fileID: 1350469170483357174}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Yes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 297859089523486387}
   - component: {fileID: 6144467611544766147}
   - component: {fileID: 9014375413548751115}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: No
   m_TagString: Untagged
   m_Icon: {fileID: 0}

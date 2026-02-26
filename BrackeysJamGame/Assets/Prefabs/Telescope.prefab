@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6477226675902051428}
   - component: {fileID: 4010810528541191283}
   - component: {fileID: 3163061529054827263}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: WaitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 7376051720177200074}
   - component: {fileID: 6351906905160479342}
   - component: {fileID: 3013475232870379849}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Yes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 6835907933099727446}
   - component: {fileID: 4402125438927323560}
   - component: {fileID: 5600725030116330486}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3527479526070409587}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WishPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 3315180417150649315}
   - component: {fileID: 331093133189528974}
   - component: {fileID: 2271762168676108110}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Telescope
   m_TagString: object
   m_Icon: {fileID: 0}
@@ -804,7 +804,7 @@ GameObject:
   - component: {fileID: 6714495854388095954}
   - component: {fileID: 7723905586365483604}
   - component: {fileID: 1841276920758682434}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: NoStarsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -942,7 +942,7 @@ GameObject:
   - component: {fileID: 531375707744659874}
   - component: {fileID: 879579474503316935}
   - component: {fileID: 5243180073892699580}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 3660955626357317465}
   - component: {fileID: 2705519888493578031}
   - component: {fileID: 5654822383959436414}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: No
   m_TagString: Untagged
   m_Icon: {fileID: 0}
